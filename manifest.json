@@ -1,0 +1,16 @@
+{
+  "name": "Verity & Nova AI",
+  "short_name": "Verity & Nova",
+  "description": "Verity & Nova AI - Learning, Games and Useful Tools",
+  "start_url": "./verity.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#2563eb",
+  "categories": [
+    "education",
+    "games",
+    "utilities"
+  ]
+}
