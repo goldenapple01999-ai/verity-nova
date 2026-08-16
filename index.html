@@ -1,37 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PWA -->
-<link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#2563eb">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<script>
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js")
-            .then(() => {
-                console.log("✅ Verity & Nova PWA installed successfully.");
-            })
-            .catch(error => {
-                console.log("❌ Service Worker error:", error);
-            });
-    });
-}
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Verity & Nova</title>
 
-<style>
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-*{
-box-sizing:border-box;
-}
+<style>
+*{box-sizing:border-box}
 
 body{
 margin:0;
@@ -47,9 +29,7 @@ margin:auto;
 padding:15px;
 }
 
-h1{
-text-align:center;
-}
+h1{text-align:center}
 
 .subtitle{
 text-align:center;
@@ -64,9 +44,7 @@ margin:20px 0;
 box-shadow:0 5px 20px #0005;
 }
 
-.center{
-text-align:center;
-}
+.center{text-align:center}
 
 button{
 border:0;
@@ -83,9 +61,7 @@ button:active{
 transform:scale(.97);
 }
 
-input,
-textarea,
-select{
+input,textarea,select{
 width:100%;
 padding:13px;
 margin:6px 0;
@@ -101,9 +77,7 @@ min-height:150px;
 resize:vertical;
 }
 
-.hidden{
-display:none;
-}
+.hidden{display:none}
 
 nav{
 display:flex;
@@ -129,9 +103,7 @@ line-height:1.5;
 white-space:pre-line;
 }
 
-.bot{
-background:#4b5563;
-}
+.bot{background:#4b5563}
 
 .user{
 background:#2563eb;
@@ -143,9 +115,7 @@ display:flex;
 gap:6px;
 }
 
-.input-row input{
-flex:1;
-}
+.input-row input{flex:1}
 
 .bot-title{
 text-align:center;
@@ -201,9 +171,7 @@ margin:6px 0;
 border-radius:10px;
 }
 
-.todo-item span{
-flex:1;
-}
+.todo-item span{flex:1}
 
 .done{
 text-decoration:line-through;
@@ -211,17 +179,9 @@ opacity:.6;
 }
 
 @media(max-width:600px){
-
-.input-row{
-flex-direction:column;
+.input-row{flex-direction:column}
+.both{grid-template-columns:1fr}
 }
-
-.both{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
 </head>
 
@@ -229,12 +189,11 @@ grid-template-columns:1fr;
 
 <div class="container">
 
-<h1>🤖 VERITY & NOVA</h1>
+<h1>🤖 VERITY & NOVA 🌸</h1>
 
 <p class="subtitle">
 AI • Learning • Games • Tools • Fun
 </p>
-
 
 <!-- PROGRESS -->
 
@@ -244,44 +203,29 @@ AI • Learning • Games • Tools • Fun
 
 <h2 id="levelText">Level 1</h2>
 
-<p>
-⭐ XP: <span id="xpText">0</span>
-</p>
+<p>⭐ XP: <span id="xpText">0</span></p>
 
 <div class="xpbar">
 <div id="xpFill" class="xpfill"></div>
 </div>
 
-<p id="badgeText">
-🥉 Beginner
-</p>
+<p id="badgeText">🥉 Beginner</p>
 
 </div>
-
 
 <!-- MAIN MENU -->
 
 <nav>
 
-<button onclick="showSection('bots')">
-🤖 Bots
-</button>
+<button onclick="showSection('bots')">🤖 Bots</button>
 
-<button onclick="showSection('quiz')">
-📝 Quiz
-</button>
+<button onclick="showSection('quiz')">📝 Quiz</button>
 
-<button onclick="showSection('games')">
-🎮 Games
-</button>
+<button onclick="showSection('games')">🎮 Games</button>
 
-<button onclick="showSection('tools')">
-🧮 Tools
-</button>
+<button onclick="showSection('tools')">🧮 Tools</button>
 
-<button onclick="showSection('both')">
-⚔️ Ask Both
-</button>
+<button onclick="showSection('both')">⚔️ Ask Both</button>
 
 <button onclick="showSection('extraTools')">
 🛠️ More Features
@@ -289,11 +233,9 @@ AI • Learning • Games • Tools • Fun
 
 </nav>
 
-
 <!-- ================= BOTS ================= -->
 
 <div id="bots">
-
 
 <!-- VERITY -->
 
@@ -304,22 +246,16 @@ AI • Learning • Games • Tools • Fun
 </div>
 
 <div class="bot-subtitle">
-
-Hello! I am Verity.
-You can ask me anything because I know everything.
-
+Hello! I am Verity. You can ask me anything.
 </div>
 
 <div class="messages" id="verityMessages">
 
 <div class="message bot">
-
 🤖 Hello! I am Verity.
 
-Ask me about science,
-technology, business,
-games and general knowledge.
-
+I can answer general questions
+and solve mathematics.
 </div>
 
 </div>
@@ -347,7 +283,6 @@ Send
 
 </div>
 
-
 <!-- NOVA -->
 
 <div class="card">
@@ -357,21 +292,16 @@ Send
 </div>
 
 <div class="bot-subtitle">
-
 Hello! I am Nova. Ask me anything.
-
 </div>
 
 <div class="messages" id="novaMessages">
 
 <div class="message bot">
-
 🌸 Hello! I am Nova.
 
-Ask me about science,
-health, technology
-and general knowledge.
-
+I can answer general questions
+and solve mathematics.
 </div>
 
 </div>
@@ -401,7 +331,6 @@ Send
 
 </div>
 
-
 <!-- ================= QUIZ ================= -->
 
 <div id="quiz" class="card hidden">
@@ -425,11 +354,9 @@ Press Start Quiz!
 
 </div>
 
-
 <!-- ================= GAMES ================= -->
 
 <div id="games" class="hidden">
-
 
 <div class="card">
 
@@ -450,22 +377,15 @@ Game not started.
 
 </div>
 
-
 <div class="card">
 
 <h2>🪨 Rock Paper Scissors</h2>
 
-<button onclick="rps('rock')">
-🪨 Rock
-</button>
+<button onclick="rps('rock')">🪨 Rock</button>
 
-<button onclick="rps('paper')">
-📄 Paper
-</button>
+<button onclick="rps('paper')">📄 Paper</button>
 
-<button onclick="rps('scissors')">
-✂️ Scissors
-</button>
+<button onclick="rps('scissors')">✂️ Scissors</button>
 
 <div id="rpsResult" class="result">
 Choose one!
@@ -475,13 +395,9 @@ Choose one!
 
 </div>
 
-
 <!-- ================= TOOLS ================= -->
 
 <div id="tools" class="hidden">
-
-
-<!-- CALCULATOR -->
 
 <div class="card">
 
@@ -498,9 +414,6 @@ Calculate
 <div id="calcResult" class="result"></div>
 
 </div>
-
-
-<!-- PERCENTAGE -->
 
 <div class="card">
 
@@ -524,38 +437,23 @@ Calculate %
 
 </div>
 
-
-<!-- STOPWATCH -->
-
 <div class="card">
 
 <h2>⏱️ Stopwatch</h2>
 
-<div
-id="stopwatch"
+<div id="stopwatch"
 class="center"
 style="font-size:35px">
-
 00:00:00
-
 </div>
 
-<button onclick="startStopwatch()">
-▶️ Start
-</button>
+<button onclick="startStopwatch()">▶️ Start</button>
 
-<button onclick="stopStopwatch()">
-⏸️ Stop
-</button>
+<button onclick="stopStopwatch()">⏸️ Stop</button>
 
-<button onclick="resetStopwatch()">
-🔄 Reset
-</button>
+<button onclick="resetStopwatch()">🔄 Reset</button>
 
 </div>
-
-
-<!-- TIMER -->
 
 <div class="card">
 
@@ -566,27 +464,19 @@ type="number"
 id="timerInput"
 placeholder="Seconds">
 
-<div
-id="timer"
+<div id="timer"
 class="center"
 style="font-size:35px">
-
 00:00
-
 </div>
 
-<button onclick="startTimer()">
-▶️ Start
-</button>
+<button onclick="startTimer()">▶️ Start</button>
 
-<button onclick="stopTimer()">
-⏸️ Stop
-</button>
+<button onclick="stopTimer()">⏸️ Stop</button>
 
 </div>
 
 </div>
-
 
 <!-- ================= ASK BOTH ================= -->
 
@@ -608,9 +498,7 @@ Ask Both
 
 <h3>👦 Verity</h3>
 
-<p id="bothVerity">
-Waiting...
-</p>
+<p id="bothVerity">Waiting...</p>
 
 </div>
 
@@ -618,21 +506,17 @@ Waiting...
 
 <h3>👧 Nova</h3>
 
-<p id="bothNova">
-Waiting...
-</p>
+<p id="bothNova">Waiting...</p>
 
 </div>
 
 </div>
 
 </div>
-
 
 <!-- ================= MORE FEATURES ================= -->
 
 <div id="extraTools" class="hidden">
-
 
 <!-- NOTES -->
 
@@ -642,21 +526,15 @@ Waiting...
 
 <textarea
 id="notes"
-placeholder="Write your notes...">
-</textarea>
+placeholder="Write your notes..."></textarea>
 
-<button onclick="saveNotes()">
-💾 Save
-</button>
+<button onclick="saveNotes()">💾 Save</button>
 
-<button onclick="clearNotes()">
-🗑️ Clear
-</button>
+<button onclick="clearNotes()">🗑️ Clear</button>
 
 <div id="notesResult" class="result"></div>
 
 </div>
-
 
 <!-- PASSWORD -->
 
@@ -675,13 +553,9 @@ max="50">
 🔑 Generate Password
 </button>
 
-<div
-id="passwordResult"
-class="result">
-</div>
+<div id="passwordResult" class="result"></div>
 
 </div>
-
 
 <!-- UNIT CONVERTER -->
 
@@ -734,13 +608,9 @@ placeholder="Enter value">
 Convert
 </button>
 
-<div
-id="unitResult"
-class="result">
-</div>
+<div id="unitResult" class="result"></div>
 
 </div>
-
 
 <!-- TEXT TOOLS -->
 
@@ -750,32 +620,19 @@ class="result">
 
 <textarea
 id="textToolInput"
-placeholder="Enter text...">
-</textarea>
+placeholder="Enter text..."></textarea>
 
-<button onclick="countText()">
-🔢 Count
-</button>
+<button onclick="countText()">🔢 Count</button>
 
-<button onclick="upperText()">
-🔠 UPPERCASE
-</button>
+<button onclick="upperText()">🔠 UPPERCASE</button>
 
-<button onclick="lowerText()">
-🔡 lowercase
-</button>
+<button onclick="lowerText()">🔡 lowercase</button>
 
-<button onclick="clearAllText()">
-🧹 Clear All
-</button>
+<button onclick="clearAllText()">🧹 Clear All</button>
 
-<div
-id="textResult"
-class="result">
-</div>
+<div id="textResult" class="result"></div>
 
 </div>
-
 
 <!-- QR -->
 
@@ -791,13 +648,9 @@ placeholder="Enter text or website">
 📱 Generate QR
 </button>
 
-<div
-id="qrResult"
-class="center">
-</div>
+<div id="qrResult" class="center"></div>
 
 </div>
-
 
 <!-- TODO -->
 
@@ -817,29 +670,21 @@ placeholder="Enter a task">
 
 </div>
 
-
 </div>
-
 
 <!-- FOOTER -->
 
 <div class="card center">
 
-<p>
-🤖 Verity • 🌸 Nova
-</p>
+<p>🤖 Verity • 🌸 Nova</p>
 
-<p>
-Created by <strong>Code Spark</strong>
-</p>
+<p>Created by <strong>Code Spark</strong></p>
 
 </div>
 
 </div>
-
 
 <script>
-
 
 /* ================= NAVIGATION ================= */
 
@@ -855,15 +700,11 @@ const sections=[
 ];
 
 sections.forEach(section=>{
-
-document
-.getElementById(section)
+document.getElementById(section)
 .classList.add("hidden");
-
 });
 
-document
-.getElementById(id)
+document.getElementById(id)
 .classList.remove("hidden");
 
 window.scrollTo({
@@ -884,10 +725,7 @@ function addXP(amount){
 
 xp+=amount;
 
-localStorage.setItem(
-"xp",
-xp
-);
+localStorage.setItem("xp",xp);
 
 updateXP();
 
@@ -898,39 +736,150 @@ function updateXP(){
 let level=
 Math.floor(xp/100)+1;
 
-let progress=
-xp%100;
+let progress=xp%100;
 
-document.getElementById(
-"xpText"
-).textContent=xp;
+document.getElementById("xpText")
+.textContent=xp;
 
-document.getElementById(
-"levelText"
-).textContent=
-"Level "+level;
+document.getElementById("levelText")
+.textContent="Level "+level;
 
-document.getElementById(
-"xpFill"
-).style.width=
-progress+"%";
+document.getElementById("xpFill")
+.style.width=progress+"%";
 
 }
 
 updateXP();
 
 
-/* ================= BOT ANSWERS ================= */
+/* =================================================
+   MATH ENGINE
+   ================================================= */
+
+function solveMath(question){
+
+let original=question;
+
+let q=question
+.toLowerCase()
+.trim();
+
+/* Percentage: 20% of 500 */
+
+let percent=q.match(
+/(-?\d+(?:\.\d+)?)\s*%\s*(?:of|from)\s*(-?\d+(?:\.\d+)?)/
+);
+
+if(percent){
+
+let p=Number(percent[1]);
+
+let n=Number(percent[2]);
+
+let answer=(p/100)*n;
+
+return `${original} = ${answer} ✅`;
+
+}
+
+/* Replace words */
+
+q=q
+.replace(/what\s+is/gi,"")
+.replace(/calculate/gi,"")
+.replace(/solve/gi,"")
+.replace(/please/gi,"")
+.replace(/equals?/gi,"")
+.replace(/multiplied\s+by/gi,"*")
+.replace(/multiply\s+by/gi,"*")
+.replace(/times/gi,"*")
+.replace(/divided\s+by/gi,"/")
+.replace(/divide\s+by/gi,"/")
+.replace(/plus/gi,"+")
+.replace(/minus/gi,"-")
+.replace(/×/g,"*")
+.replace(/÷/g,"/")
+.replace(/\^/g,"**");
+
+/* Square root */
+
+q=q.replace(
+/square\s+root\s+of\s+(\d+(?:\.\d+)?)/gi,
+"Math.sqrt($1)"
+);
+
+/* Check if it actually looks like math */
+
+if(
+!/[0-9]/.test(q) ||
+!/[+\-*/%]/.test(q)
+){
+
+return null;
+
+}
+
+/* Security check */
+
+if(
+!/^[0-9+\-*/().\s%*]+$/.test(q)
+){
+
+return null;
+
+}
+
+try{
+
+let answer=Function(
+'"use strict";return('+q+')'
+)();
+
+if(
+typeof answer!=="number" ||
+!Number.isFinite(answer)
+){
+
+return null;
+
+}
+
+answer=Number(
+answer.toFixed(10)
+);
+
+return `${original} = ${answer} ✅`;
+
+}catch{
+
+return null;
+
+}
+
+}
+
+
+/* ================= BOT KNOWLEDGE ================= */
 
 function getAnswer(question){
+
+/* FIRST: TRY MATH */
+
+let mathAnswer=
+solveMath(question);
+
+if(mathAnswer){
+
+return mathAnswer;
+
+}
 
 let q=
 question.toLowerCase().trim();
 
 
 if(
-q.includes("who is your creator")||
-q.includes("who is your creator?")||
+q.includes("who is your creator") ||
 q.includes("creator")
 ){
 
@@ -939,7 +888,7 @@ return "🤖 My creator is Code Spark.";
 }
 
 
-if(q==="what is boy"||
+if(q==="what is boy" ||
 q==="what is a boy"){
 
 return "👦 A boy is a male child or young person.";
@@ -947,7 +896,7 @@ return "👦 A boy is a male child or young person.";
 }
 
 
-if(q==="what is girl"||
+if(q==="what is girl" ||
 q==="what is a girl"){
 
 return "👧 A girl is a female child or young person.";
@@ -977,11 +926,12 @@ return "🔬 Science is the study of the natural world using evidence.";
 
 
 if(
-q.includes("what is math")||
-q.includes("what is maths")
+q.includes("what is math") ||
+q.includes("what is maths") ||
+q.includes("mathematics")
 ){
 
-return "🧮 Mathematics is the study of numbers, patterns, shapes and logical relationships.";
+return "🧮 Mathematics is the study of numbers, patterns, shapes and logical relationships. You can also ask me to calculate something, such as 25 × 16.";
 
 }
 
@@ -1036,7 +986,7 @@ return "🌸 Periods, also called menstruation, are a normal part of the menstru
 
 
 if(
-q.includes("pocso")||
+q.includes("pocso") ||
 q.includes("posco")
 ){
 
@@ -1053,8 +1003,8 @@ return "🌱 Pregnancy can begin when a sperm fertilizes an egg and the fertiliz
 
 
 if(
-q==="hi"||
-q==="hello"||
+q==="hi" ||
+q==="hello" ||
 q==="hey"
 ){
 
@@ -1075,7 +1025,10 @@ return "🤔 I don't have a built-in answer for that yet. Try another question."
 }
 
 
+/* ================= LAST ANSWERS ================= */
+
 let lastVerity="";
+
 let lastNova="";
 
 
@@ -1083,20 +1036,17 @@ let lastNova="";
 
 function sendBot(bot){
 
-const input=
-document.getElementById(
+const input=document.getElementById(
 bot==="Verity"
 ?"verityInput"
 :"novaInput"
 );
 
-const question=
-input.value.trim();
+const question=input.value.trim();
 
 if(!question)return;
 
-const box=
-document.getElementById(
+const box=document.getElementById(
 bot==="Verity"
 ?"verityMessages"
 :"novaMessages"
@@ -1108,8 +1058,7 @@ question,
 "user"
 );
 
-const answer=
-getAnswer(question);
+const answer=getAnswer(question);
 
 if(bot==="Verity")
 lastVerity=answer;
@@ -1132,6 +1081,8 @@ addXP(5);
 
 }
 
+
+/* ================= ADD MESSAGE ================= */
 
 function addMessage(
 box,
@@ -1166,21 +1117,15 @@ bot==="Verity"
 
 if(!text){
 
-alert(
-"Ask a question first."
-);
+alert("Ask a question first.");
 
 return;
 
 }
 
-if(
-!("speechSynthesis" in window)
-){
+if(!("speechSynthesis" in window)){
 
-alert(
-"Speech is not supported."
-);
+alert("Speech is not supported.");
 
 return;
 
@@ -1189,15 +1134,11 @@ return;
 speechSynthesis.cancel();
 
 const speech=
-new SpeechSynthesisUtterance(
-text
-);
+new SpeechSynthesisUtterance(text);
 
 speech.lang="en-US";
 
-speechSynthesis.speak(
-speech
-);
+speechSynthesis.speak(speech);
 
 }
 
@@ -1211,8 +1152,7 @@ bot==="Verity"
 ?"verityMessages"
 :"novaMessages";
 
-document.getElementById(id)
-.innerHTML=
+document.getElementById(id).innerHTML=
 '<div class="message bot">'+
 (
 bot==="Verity"
@@ -1229,18 +1169,13 @@ bot==="Verity"
 function calculate(){
 
 const expression=
-document.getElementById(
-"calcInput"
-).value;
+document.getElementById("calcInput")
+.value;
 
-if(
-!/^[0-9+\-*/().%\s]+$/
-.test(expression)
-){
+if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
 
-document.getElementById(
-"calcResult"
-).textContent=
+document.getElementById("calcResult")
+.textContent=
 "❌ Invalid calculation.";
 
 return;
@@ -1249,21 +1184,18 @@ return;
 
 try{
 
-const answer=
-Function(
+const answer=Function(
 '"use strict";return('+expression+')'
 )();
 
-document.getElementById(
-"calcResult"
-).textContent=
+document.getElementById("calcResult")
+.textContent=
 "🧮 Answer = "+answer;
 
 }catch{
 
-document.getElementById(
-"calcResult"
-).textContent=
+document.getElementById("calcResult")
+.textContent=
 "❌ Invalid calculation.";
 
 }
@@ -1275,35 +1207,27 @@ document.getElementById(
 
 function percentage(){
 
-const value=
-Number(
-document.getElementById(
-"percentValue"
-).value
+const value=Number(
+document.getElementById("percentValue")
+.value
 );
 
-const total=
-Number(
-document.getElementById(
-"percentTotal"
-).value
+const total=Number(
+document.getElementById("percentTotal")
+.value
 );
 
 if(!total){
 
-alert(
-"Enter a total."
-);
+alert("Enter a total.");
 
 return;
 
 }
 
-document.getElementById(
-"percentResult"
-).textContent=
-(value/total*100)
-.toFixed(2)+"%";
+document.getElementById("percentResult")
+.textContent=
+(value/total*100).toFixed(2)+"%";
 
 }
 
@@ -1316,22 +1240,18 @@ let stopwatchInterval=null;
 
 function updateStopwatch(){
 
-const h=
-Math.floor(
+const h=Math.floor(
 stopwatchSeconds/3600
 );
 
-const m=
-Math.floor(
+const m=Math.floor(
 (stopwatchSeconds%3600)/60
 );
 
-const s=
-stopwatchSeconds%60;
+const s=stopwatchSeconds%60;
 
-document.getElementById(
-"stopwatch"
-).textContent=
+document.getElementById("stopwatch")
+.textContent=
 String(h).padStart(2,"0")+
 ":"+
 String(m).padStart(2,"0")+
@@ -1342,11 +1262,9 @@ String(s).padStart(2,"0");
 
 function startStopwatch(){
 
-if(stopwatchInterval)
-return;
+if(stopwatchInterval)return;
 
-stopwatchInterval=
-setInterval(()=>{
+stopwatchInterval=setInterval(()=>{
 
 stopwatchSeconds++;
 
@@ -1358,9 +1276,7 @@ updateStopwatch();
 
 function stopStopwatch(){
 
-clearInterval(
-stopwatchInterval
-);
+clearInterval(stopwatchInterval);
 
 stopwatchInterval=null;
 
@@ -1385,17 +1301,14 @@ let timerInterval=null;
 
 function updateTimer(){
 
-const m=
-Math.floor(
+const m=Math.floor(
 timerSeconds/60
 );
 
-const s=
-timerSeconds%60;
+const s=timerSeconds%60;
 
-document.getElementById(
-"timer"
-).textContent=
+document.getElementById("timer")
+.textContent=
 String(m).padStart(2,"0")+
 ":"+
 String(s).padStart(2,"0");
@@ -1404,51 +1317,36 @@ String(s).padStart(2,"0");
 
 function startTimer(){
 
-timerSeconds=
-Number(
-document.getElementById(
-"timerInput"
-).value
+timerSeconds=Number(
+document.getElementById("timerInput")
+.value
 );
 
-if(
-timerSeconds<=0
-){
+if(timerSeconds<=0){
 
-alert(
-"Enter seconds."
-);
+alert("Enter seconds.");
 
 return;
 
 }
 
-clearInterval(
-timerInterval
-);
+clearInterval(timerInterval);
 
 updateTimer();
 
-timerInterval=
-setInterval(()=>{
+timerInterval=setInterval(()=>{
 
 timerSeconds--;
 
 updateTimer();
 
-if(
-timerSeconds<=0
-){
+if(timerSeconds<=0){
 
-clearInterval(
-timerInterval
-);
+clearInterval(timerInterval);
 
 timerInterval=null;
 
-alert(
-"⏰ Timer finished!"
-);
+alert("⏰ Timer finished!");
 
 }
 
@@ -1458,9 +1356,7 @@ alert(
 
 function stopTimer(){
 
-clearInterval(
-timerInterval
-);
+clearInterval(timerInterval);
 
 timerInterval=null;
 
@@ -1473,54 +1369,39 @@ function saveNotes(){
 
 localStorage.setItem(
 "notes",
-document.getElementById(
-"notes"
-).value
+document.getElementById("notes").value
 );
 
-document.getElementById(
-"notesResult"
-).textContent=
+document.getElementById("notesResult")
+.textContent=
 "✅ Notes saved.";
 
 }
 
 function clearNotes(){
 
-document.getElementById(
-"notes"
-).value="";
+document.getElementById("notes").value="";
 
-localStorage.removeItem(
-"notes"
-);
+localStorage.removeItem("notes");
 
 }
 
-document.getElementById(
-"notes"
-).value=
-localStorage.getItem(
-"notes"
-)||"";
+document.getElementById("notes").value=
+localStorage.getItem("notes")||"";
 
 
 /* ================= PASSWORD ================= */
 
 function generatePassword(){
 
-let length=
-Number(
-document.getElementById(
-"passwordLength"
-).value
+let length=Number(
+document.getElementById("passwordLength")
+.value
 );
 
-if(length<4)
-length=4;
+if(length<4)length=4;
 
-if(length>50)
-length=50;
+if(length>50)length=50;
 
 const chars=
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
@@ -1529,14 +1410,9 @@ const chars=
 
 let password="";
 
-for(
-let i=0;
-i<length;
-i++
-){
+for(let i=0;i<length;i++){
 
-password+=
-chars[
+password+=chars[
 Math.floor(
 Math.random()*chars.length
 )
@@ -1546,8 +1422,7 @@ Math.random()*chars.length
 
 document.getElementById(
 "passwordResult"
-).textContent=
-password;
+).textContent=password;
 
 }
 
@@ -1556,20 +1431,16 @@ password;
 
 function convertUnit(){
 
-const value=
-Number(
-document.getElementById(
-"unitValue"
-).value
+const value=Number(
+document.getElementById("unitValue")
+.value
 );
 
-const type=
-document.getElementById(
+const type=document.getElementById(
 "unitType"
 ).value;
 
-if(isNaN(value))
-return;
+if(isNaN(value))return;
 
 let result;
 
@@ -1612,8 +1483,7 @@ break;
 document.getElementById(
 "unitResult"
 ).textContent=
-"Result: "+
-result.toFixed(4);
+"Result: "+result.toFixed(4);
 
 }
 
@@ -1622,54 +1492,41 @@ result.toFixed(4);
 
 function countText(){
 
-const text=
-document.getElementById(
+const text=document.getElementById(
 "textToolInput"
 ).value;
 
-const words=
-text.trim()
+const words=text.trim()
 ?text.trim().split(/\s+/).length
 :0;
 
 document.getElementById(
 "textResult"
 ).textContent=
-"Characters: "+
-text.length+
-"\nWords: "+
-words;
+"Characters: "+text.length+
+"\nWords: "+words;
 
 }
-
 
 function upperText(){
 
-const input=
-document.getElementById(
+const input=document.getElementById(
 "textToolInput"
 );
 
-input.value=
-input.value.toUpperCase();
+input.value=input.value.toUpperCase();
 
 }
-
 
 function lowerText(){
 
-const input=
-document.getElementById(
+const input=document.getElementById(
 "textToolInput"
 );
 
-input.value=
-input.value.toLowerCase();
+input.value=input.value.toLowerCase();
 
 }
-
-
-/* ================= CLEAR ALL TEXT ================= */
 
 function clearAllText(){
 
@@ -1688,30 +1545,25 @@ document.getElementById(
 
 function generateQR(){
 
-const text=
-document.getElementById(
+const text=document.getElementById(
 "qrInput"
 ).value.trim();
 
 if(!text){
 
-alert(
-"Enter text first."
-);
+alert("Enter text first.");
 
 return;
 
 }
 
-const box=
-document.getElementById(
+const box=document.getElementById(
 "qrResult"
 );
 
 box.innerHTML="";
 
-const image=
-document.createElement("img");
+const image=document.createElement("img");
 
 image.width=220;
 
@@ -1730,47 +1582,33 @@ box.appendChild(image);
 
 /* ================= TODO ================= */
 
-let todos=
-JSON.parse(
-localStorage.getItem(
-"todos"
-)||"[]"
+let todos=JSON.parse(
+localStorage.getItem("todos")||"[]"
 );
 
 function renderTodos(){
 
-const box=
-document.getElementById(
+const box=document.getElementById(
 "todoList"
 );
 
 box.innerHTML="";
 
-todos.forEach(
-(todo,index)=>{
+todos.forEach((todo,index)=>{
 
-const item=
-document.createElement(
-"div"
-);
+const item=document.createElement("div");
 
-item.className=
-"todo-item";
+item.className="todo-item";
 
-const check=
-document.createElement(
-"input"
-);
+const check=document.createElement("input");
 
 check.type="checkbox";
 
-check.checked=
-todo.done;
+check.checked=todo.done;
 
 check.onchange=()=>{
 
-todo.done=
-check.checked;
+todo.done=check.checked;
 
 saveTodos();
 
@@ -1778,30 +1616,20 @@ renderTodos();
 
 };
 
-const span=
-document.createElement(
-"span"
-);
+const span=document.createElement("span");
 
-span.textContent=
-todo.text;
+span.textContent=todo.text;
 
 if(todo.done)
 span.className="done";
 
-const remove=
-document.createElement(
-"button"
-);
+const remove=document.createElement("button");
 
 remove.textContent="🗑️";
 
 remove.onclick=()=>{
 
-todos.splice(
-index,
-1
-);
+todos.splice(index,1);
 
 saveTodos();
 
@@ -1817,8 +1645,7 @@ item.appendChild(remove);
 
 box.appendChild(item);
 
-}
-);
+});
 
 }
 
@@ -1833,16 +1660,13 @@ JSON.stringify(todos)
 
 function addTodo(){
 
-const input=
-document.getElementById(
+const input=document.getElementById(
 "todoInput"
 );
 
-const text=
-input.value.trim();
+const text=input.value.trim();
 
-if(!text)
-return;
+if(!text)return;
 
 todos.push({
 text:text,
@@ -1863,25 +1687,18 @@ renderTodos();
 /* ================= GUESS GAME ================= */
 
 let secretNumber=
-Math.floor(
-Math.random()*20
-)+1;
+Math.floor(Math.random()*20)+1;
 
 function guessNumber(){
 
-const guess=
-Number(
-document.getElementById(
-"guessInput"
-).value
+const guess=Number(
+document.getElementById("guessInput")
+.value
 );
 
-if(!guess)
-return;
+if(!guess)return;
 
-if(
-guess===secretNumber
-){
+if(guess===secretNumber){
 
 document.getElementById(
 "guessResult"
@@ -1889,13 +1706,9 @@ document.getElementById(
 "🎉 Correct! A new number has been created.";
 
 secretNumber=
-Math.floor(
-Math.random()*20
-)+1;
+Math.floor(Math.random()*20)+1;
 
-}else if(
-guess<secretNumber
-){
+}else if(guess<secretNumber){
 
 document.getElementById(
 "guessResult"
@@ -1926,35 +1739,25 @@ const choices=[
 
 const computer=
 choices[
-Math.floor(
-Math.random()*3
-)
+Math.floor(Math.random()*3)
 ];
 
 let result;
 
-if(
-player===computer
-){
+if(player===computer){
 
 result="🤝 Draw!";
 
 }else if(
 
-(
-player==="rock"&&
-computer==="scissors"
-)||
+(player==="rock" &&
+computer==="scissors") ||
 
-(
-player==="paper"&&
-computer==="rock"
-)||
+(player==="paper" &&
+computer==="rock") ||
 
-(
-player==="scissors"&&
-computer==="paper"
-)
+(player==="scissors" &&
+computer==="paper")
 
 ){
 
@@ -1962,20 +1765,16 @@ result="🎉 You win!";
 
 }else{
 
-result=
-"😅 Computer wins!";
+result="😅 Computer wins!";
 
 }
 
 document.getElementById(
 "rpsResult"
 ).textContent=
-"You: "+
-player+
-" | Computer: "+
-computer+
-" → "+
-result;
+"You: "+player+
+" | Computer: "+computer+
+" → "+result;
 
 }
 
@@ -1984,27 +1783,27 @@ result;
 
 function askBoth(){
 
-const question=
-document.getElementById(
+const question=document.getElementById(
 "bothInput"
 ).value.trim();
 
-if(!question)
-return;
+if(!question)return;
+
+const answer=getAnswer(question);
 
 document.getElementById(
 "bothVerity"
-).textContent=
-getAnswer(question);
+).textContent=answer;
 
 document.getElementById(
 "bothNova"
-).textContent=
-getAnswer(question);
+).textContent=answer;
 
 document.getElementById(
 "bothInput"
 ).value="";
+
+addXP(5);
 
 }
 
@@ -2015,12 +1814,7 @@ const questions=[
 
 {
 q:"Which planet is called the Red Planet?",
-a:[
-"Earth",
-"Mars",
-"Jupiter",
-"Venus"
-],
+a:["Earth","Mars","Jupiter","Venus"],
 c:1
 },
 
@@ -2037,24 +1831,26 @@ c:0
 
 {
 q:"How many sides does a triangle have?",
-a:[
-"2",
-"3",
-"4",
-"5"
-],
+a:["2","3","4","5"],
 c:1
 },
 
 {
 q:"Which gas do humans need to breathe?",
-a:[
-"Oxygen",
-"Helium",
-"Hydrogen",
-"Neon"
-],
+a:["Oxygen","Helium","Hydrogen","Neon"],
 c:0
+},
+
+{
+q:"What is 10 + 20?",
+a:["20","30","40","50"],
+c:1
+},
+
+{
+q:"What is 5 × 5?",
+a:["10","15","20","25"],
+c:3
 }
 
 ];
@@ -2077,20 +1873,15 @@ showQuestion();
 
 }
 
-
 function showQuestion(){
 
-if(
-quizIndex>=questions.length
-){
+if(quizIndex>=questions.length){
 
 document.getElementById(
 "quizQuestion"
 ).textContent=
 "🏆 Quiz Complete! Score: "+
-quizScore+
-"/"+
-questions.length;
+quizScore+"/"+questions.length;
 
 document.getElementById(
 "quizOptions"
@@ -2100,65 +1891,52 @@ return;
 
 }
 
-const q=
-questions[quizIndex];
+const q=questions[quizIndex];
 
 document.getElementById(
 "quizQuestion"
 ).textContent=
-(quizIndex+1)+
-". "+
-q.q;
+(quizIndex+1)+". "+q.q;
 
-const box=
-document.getElementById(
+const box=document.getElementById(
 "quizOptions"
 );
 
 box.innerHTML="";
 
-q.a.forEach(
-(answer,index)=>{
+q.a.forEach((answer,index)=>{
 
-const button=
-document.createElement(
+const button=document.createElement(
 "button"
 );
 
-button.style.display=
-"block";
+button.style.display="block";
 
-button.style.width=
-"100%";
+button.style.width="100%";
 
-button.textContent=
-answer;
+button.textContent=answer;
 
 button.onclick=()=>{
 
-if(
-index===q.c
-){
+if(index===q.c){
 
 quizScore++;
 
-alert(
-"✅ Correct!"
-);
+alert("✅ Correct!");
+
+addXP(10);
 
 }else{
 
 alert(
-"❌ Correct answer: "+
-q.a[q.c]
+"❌ Correct answer: "+q.a[q.c]
 );
 
 }
 
 document.getElementById(
 "quizScore"
-).textContent=
-quizScore;
+).textContent=quizScore;
 
 quizIndex++;
 
@@ -2168,8 +1946,7 @@ showQuestion();
 
 box.appendChild(button);
 
-}
-);
+});
 
 }
 
@@ -2188,7 +1965,6 @@ sendBot("Verity");
 }
 );
 
-
 document.getElementById(
 "novaInput"
 ).addEventListener(
@@ -2201,7 +1977,44 @@ sendBot("Nova");
 }
 );
 
+document.getElementById(
+"bothInput"
+).addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Enter")
+askBoth();
+
+}
+);
+
+
+/* ================= SERVICE WORKER ================= */
+
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",()=>{
+
+navigator.serviceWorker
+.register("./service-worker.js")
+.then(()=>{
+console.log(
+"✅ Verity & Nova service worker registered."
+);
+})
+.catch(error=>{
+console.log(
+"❌ Service worker error:",
+error
+);
+});
+
+});
+
+}
+
 </script>
 
 </body>
-</html>
+  </html>
