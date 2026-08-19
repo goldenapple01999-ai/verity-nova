@@ -3,157 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#2563eb">
-<link rel="manifest" href="manifest.json">
 
 <title>Verity & Nova</title>
 
 <style>
 *{box-sizing:border-box}
-:root{
-  --bg:#0b1220;
-  --card:#172033;
-  --input:#0f172a;
-  --text:#fff;
-  --muted:#aeb8c8;
-  --primary:#2563eb;
-  --good:#22c55e;
-  --bad:#ef4444;
-}
-body.light{
-  --bg:#eef3f8;
-  --card:#fff;
-  --input:#e7edf4;
-  --text:#111827;
-  --muted:#64748b;
-}
+
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:.2s;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b1220;
+    color:white;
+    transition:.3s;
 }
+
+body.light{
+    background:#f1f5f9;
+    color:#111827;
+}
+
 .container{
-  width:95%;
-  max-width:950px;
-  margin:auto;
-  padding:15px;
+    width:95%;
+    max-width:1000px;
+    margin:auto;
+    padding:15px;
 }
-h1{text-align:center}
-.subtitle{text-align:center;color:var(--muted)}
+
+h1,h2{text-align:center}
+
+.subtitle{
+    text-align:center;
+    color:#aeb8c8;
+}
+
 .card{
-  background:var(--card);
-  border-radius:18px;
-  padding:18px;
-  margin:16px 0;
-  box-shadow:0 5px 20px #0004;
+    background:#172033;
+    border-radius:20px;
+    padding:18px;
+    margin:15px 0;
+    box-shadow:0 5px 20px #0005;
 }
-.center{text-align:center}
+
+.light .card{background:white}
+
 button{
-  border:0;
-  border-radius:10px;
-  padding:11px 15px;
-  background:var(--primary);
-  color:white;
-  font-size:15px;
-  margin:4px;
-  cursor:pointer;
+    border:0;
+    border-radius:12px;
+    padding:12px 16px;
+    margin:5px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
 }
+
 button:active{transform:scale(.97)}
+
 input,textarea,select{
-  width:100%;
-  padding:12px;
-  margin:6px 0;
-  border:0;
-  border-radius:10px;
-  background:var(--input);
-  color:var(--text);
-  font-size:16px;
+    width:100%;
+    padding:13px;
+    margin:6px 0;
+    border:0;
+    border-radius:10px;
+    background:#0f172a;
+    color:white;
+    font-size:16px;
 }
+
+.light input,
+.light textarea,
+.light select{
+    background:#e5e7eb;
+    color:#111827;
+}
+
 textarea{min-height:120px}
+
 .hidden{display:none!important}
+
 nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:5px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:5px;
+    margin:15px 0;
 }
+
 .messages{
-  height:260px;
-  overflow-y:auto;
-  background:var(--input);
-  border-radius:12px;
-  padding:10px;
+    height:280px;
+    overflow-y:auto;
+    background:#0f172a;
+    border-radius:15px;
+    padding:10px;
 }
+
 .message{
-  padding:11px;
-  margin:7px 0;
-  border-radius:11px;
-  white-space:pre-line;
+    padding:12px;
+    margin:8px 0;
+    border-radius:12px;
+    line-height:1.5;
+    white-space:pre-line;
 }
-.bot{background:#475569}
+
+.bot{background:#4b5563}
+
 .user{
-  background:var(--primary);
-  margin-left:12%;
+    background:#2563eb;
+    margin-left:10%;
 }
+
 .input-row{
-  display:flex;
-  gap:5px;
+    display:flex;
+    gap:5px;
 }
+
 .input-row input{flex:1}
+
 .result{
-  background:var(--input);
-  padding:13px;
-  border-radius:10px;
-  margin-top:8px;
-  white-space:pre-wrap;
+    background:#0f172a;
+    border-radius:12px;
+    padding:15px;
+    margin-top:10px;
+    white-space:pre-wrap;
 }
-.option{
-  display:block;
-  width:100%;
-  text-align:left;
-  margin:7px 0;
-}
-.correct{background:var(--good)!important}
-.wrong{background:var(--bad)!important}
+
 .xpbar{
-  height:18px;
-  background:var(--input);
-  border-radius:20px;
-  overflow:hidden;
+    height:18px;
+    background:#0f172a;
+    border-radius:20px;
+    overflow:hidden;
 }
+
 .xpfill{
-  height:100%;
-  width:0%;
-  background:var(--primary);
+    height:100%;
+    width:0%;
+    background:#22c55e;
 }
-.bot-title{
-  text-align:center;
-  font-size:28px;
-  font-weight:bold;
+
+.choice{
+    display:block;
+    width:100%;
+    text-align:left;
 }
-.muted{color:var(--muted)}
-.game-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
+
+.correct{background:#16a34a!important}
+
+.wrong{background:#dc2626!important}
+
+.memory-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
 }
+
 .memory-card{
-  height:70px;
-  font-size:25px;
-  background:var(--input);
+    height:70px;
+    background:#2563eb;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    cursor:pointer;
 }
-.search-result{
-  padding:10px;
-  margin:5px 0;
-  background:var(--input);
-  border-radius:10px;
+
+.memory-card.open{background:#4b5563}
+
+.achievement{
+    padding:10px;
+    margin:5px 0;
+    border-radius:10px;
+    background:#0f172a;
 }
+
 @media(max-width:600px){
-  .input-row{flex-direction:column}
-  .game-grid{grid-template-columns:repeat(2,1fr)}
-  button{font-size:14px}
+    .input-row{flex-direction:column}
+
+    .memory-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    button{
+        font-size:14px;
+        padding:10px 12px;
+    }
 }
 </style>
 </head>
@@ -163,829 +196,2580 @@ nav{
 <div class="container">
 
 <h1>🤖 VERITY & NOVA</h1>
-<p class="subtitle">AI • Learning • Games • Tools • Fun</p>
 
-<!-- SEARCH -->
-<div class="card">
-<input id="searchInput"
-placeholder="🔍 Search features..."
-oninput="searchFeatures()">
-<div id="searchResults"></div>
+<p class="subtitle">
+AI • Learning • Games • Tools • Fun
+</p>
+
+<!-- LOGIN -->
+
+<div id="loginSection" class="card">
+
+<h2>🔐 Login / Signup</h2>
+
+<input id="username" placeholder="Enter your name">
+
+<button onclick="login()">Login / Signup</button>
+
+<p id="loginResult"></p>
+
 </div>
 
+<!-- APP -->
+
+<div id="app" class="hidden">
+
 <!-- PROGRESS -->
-<div class="card center">
+
+<div class="card">
+
 <h2>🏆 Your Progress</h2>
+
 <h2 id="levelText">Level 1</h2>
+
 <p>⭐ XP: <span id="xpText">0</span></p>
+
 <div class="xpbar">
 <div id="xpFill" class="xpfill"></div>
 </div>
+
 <p id="badgeText">🥉 Beginner</p>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="card">
+
+<h2>🔍 Search</h2>
+
+<input
+id="searchInput"
+placeholder="Search..."
+oninput="searchSite">
+
+<div id="searchResult"></div>
+
 </div>
 
 <!-- MENU -->
+
 <nav>
+
 <button onclick="showSection('bots')">🤖 Bots</button>
 <button onclick="showSection('quiz')">📝 Quiz</button>
 <button onclick="showSection('games')">🎮 Games</button>
-<button onclick="showSection('tools')">🛠️ Tools</button>
-<button onclick="showSection('both')">⚔️ Ask Both</button>
+<button onclick="showSection('tools')">🧮 Tools</button>
+<button onclick="showSection('extra')">🛠️ More</button>
 <button onclick="showSection('settings')">⚙️ Settings</button>
+
 </nav>
 
-<!-- ================= BOTS ================= -->
+<!-- BOTS -->
 
 <div id="bots">
 
 <div class="card">
-<div class="bot-title">👦 VERITY 🤖</div>
-<p class="center muted">Ask me anything!</p>
 
-<div class="messages" id="verityMessages">
-<div class="message bot">🤖 Hello! I am Verity. Ask me a question!</div>
+<h2>👦 VERITY 🤖</h2>
+
+<p>Hello! I am Verity. Ask me anything.</p>
+
+<div id="verityMessages" class="messages">
+
+<div class="message bot">
+🤖 Hello! I am Verity.
+Ask me a question!
+</div>
+
 </div>
 
 <div class="input-row">
+
 <input id="verityInput" placeholder="Ask Verity...">
+
 <button onclick="sendBot('Verity')">Send</button>
+
 </div>
 
-<button onclick="speakLast('Verity')">🔊 Read Answer</button>
-<button onclick="clearChat('Verity')">🗑️ Clear</button>
+<button onclick="speakLast('Verity')">
+🔊 Read Answer
+</button>
+
+<button onclick="clearChat('Verity')">
+🗑️ Clear
+</button>
+
 </div>
 
 <div class="card">
-<div class="bot-title">👧 NOVA 🌸</div>
-<p class="center muted">Ask me anything!</p>
 
-<div class="messages" id="novaMessages">
-<div class="message bot">🌸 Hello! I am Nova. Ask me a question!</div>
+<h2>👧 NOVA 🌸</h2>
+
+<p>Hello! I am Nova. Ask me anything.</p>
+
+<div id="novaMessages" class="messages">
+
+<div class="message bot">
+🌸 Hello! I am Nova.
+Ask me a question!
+</div>
+
 </div>
 
 <div class="input-row">
+
 <input id="novaInput" placeholder="Ask Nova...">
+
 <button onclick="sendBot('Nova')">Send</button>
-</div>
-
-<button onclick="speakLast('Nova')">🔊 Read Answer</button>
-<button onclick="clearChat('Nova')">🗑️ Clear</button>
-</div>
 
 </div>
 
-<!-- ================= QUIZ ================= -->
+<button onclick="speakLast('Nova')">
+🔊 Read Answer
+</button>
+
+<button onclick="clearChat('Nova')">
+🗑️ Clear
+</button>
+
+</div>
+
+</div>
+
+<!-- QUIZ -->
 
 <div id="quiz" class="card hidden">
 
 <h2>📝 Random Quiz</h2>
-<p>Questions: <b>10</b> | Choices: <b>4</b></p>
-<p>Score: <span id="quizScore">0</span>/10</p>
 
-<h3 id="quizQuestion">Press Start Quiz!</h3>
+<p>Choose from the question bank.</p>
+
+<p>
+Question:
+<span id="questionNumber">0</span>/10
+</p>
+
+<h3 id="quizQuestion">
+Press Start Quiz
+</h3>
+
 <div id="quizOptions"></div>
 
-<button onclick="startQuiz()">🚀 Start Quiz</button>
-<button onclick="resetQuiz()">🔄 Reset Quiz</button>
+<p>
+🏆 Score:
+<span id="quizScore">0</span>/10
+</p>
 
-<div id="quizResult" class="result"></div>
+<button onclick="startQuiz()">
+🚀 Start / New Quiz
+</button>
+
+<button onclick="resetQuiz()">
+🔄 Reset Quiz
+</button>
+
 </div>
 
-<!-- ================= GAMES ================= -->
+<!-- GAMES -->
 
 <div id="games" class="hidden">
 
 <div class="card">
+
+<h2>🎯 Number Guessing</h2>
+
+<input
+id="guessInput"
+type="number"
+placeholder="Guess 1-20">
+
+<button onclick="guessNumber()">Guess</button>
+
+<div id="guessResult" class="result">
+Game not started.
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🪨 Rock Paper Scissors</h2>
+
+<button onclick="rps('rock')">🪨 Rock</button>
+<button onclick="rps('paper')">📄 Paper</button>
+<button onclick="rps('scissors')">✂️ Scissors</button>
+
+<div id="rpsResult" class="result">
+Choose one!
+</div>
+
+</div>
+
+<div class="card">
+
 <h2>🧠 Memory Game</h2>
-<p>Find all matching pairs.</p>
-<div id="memoryBoard" class="game-grid"></div>
+
+<div id="memoryGrid" class="memory-grid"></div>
+
+<button onclick="startMemory()">
+🔄 New Game
+</button>
+
 <p id="memoryResult"></p>
-<button onclick="startMemory()">🔄 New Game</button>
-</div>
 
-<div class="card">
-<h2>⌨️ Typing Speed Test</h2>
-<p id="typingText">
-The quick brown fox jumps over the lazy dog.
-</p>
-<textarea id="typingInput"
-placeholder="Type the sentence above..."
-oninput="typingCheck()"></textarea>
-<p>Time: <span id="typingTime">0</span>s</p>
-<p>Speed: <span id="typingWpm">0</span> WPM</p>
-<button onclick="startTyping()">🚀 Start Test</button>
-<button onclick="resetTyping()">🔄 Reset</button>
-</div>
-
-<div class="card">
-<h2>🎯 Daily Challenge</h2>
-<p id="dailyQuestion"></p>
-<div id="dailyOptions"></div>
-<p id="dailyResult"></p>
 </div>
 
 </div>
 
-<!-- ================= TOOLS ================= -->
+<!-- TOOLS -->
 
 <div id="tools" class="hidden">
 
 <div class="card">
-<h2>🧮 Calculator</h2>
-<input id="calcInput" placeholder="Example: 25 * 4 + 10">
+
+<h2>🧮 Smart Calculator</h2>
+
+<input
+id="calcInput"
+placeholder="Example: 25 * 4 + 10">
+
 <button onclick="calculate()">Calculate</button>
+
 <div id="calcResult" class="result"></div>
+
 </div>
 
 <div class="card">
-<h2>💱 Currency Converter</h2>
-<p class="muted">
-Uses approximate common rates. Internet/live rates can be added later.
-</p>
 
-<input type="number" id="currencyAmount" placeholder="Amount">
+<h2>💯 Percentage</h2>
 
-<select id="currencyFrom">
-<option value="INR">🇮🇳 INR</option>
-<option value="USD">🇺🇸 USD</option>
-<option value="EUR">🇪🇺 EUR</option>
-<option value="GBP">🇬🇧 GBP</option>
-<option value="JPY">🇯🇵 JPY</option>
-</select>
+<input id="percentValue" type="number" placeholder="Value">
+<input id="percentTotal" type="number" placeholder="Total">
 
-<select id="currencyTo">
-<option value="USD">🇺🇸 USD</option>
-<option value="INR">🇮🇳 INR</option>
-<option value="EUR">🇪🇺 EUR</option>
-<option value="GBP">🇬🇧 GBP</option>
-<option value="JPY">🇯🇵 JPY</option>
-</select>
+<button onclick="percentage()">Calculate</button>
 
-<button onclick="convertCurrency()">💱 Convert</button>
-<div id="currencyResult" class="result"></div>
-</div>
-
-<div class="card">
-<h2>📊 Percentage</h2>
-<input type="number" id="percentValue" placeholder="Value">
-<input type="number" id="percentTotal" placeholder="Total">
-<button onclick="percentage()">Calculate %</button>
 <div id="percentResult" class="result"></div>
+
 </div>
 
 <div class="card">
+
+<h2>💱 Currency Converter</h2>
+
+<input
+id="currencyAmount"
+type="number"
+placeholder="Amount">
+
+<select id="currencyRate">
+
+<option value="83.5">USD → INR</option>
+<option value="0.86">USD → EUR</option>
+<option value="0.75">USD → GBP</option>
+
+</select>
+
+<button onclick="convertCurrency()">Convert</button>
+
+<div id="currencyResult" class="result"></div>
+
+</div>
+
+<div class="card">
+
 <h2>⏱️ Stopwatch</h2>
-<div id="stopwatch" class="center" style="font-size:32px">00:00:00</div>
+
+<h2 id="stopwatch">00:00:00</h2>
+
 <button onclick="startStopwatch()">▶️ Start</button>
 <button onclick="stopStopwatch()">⏸️ Stop</button>
 <button onclick="resetStopwatch()">🔄 Reset</button>
+
 </div>
 
 <div class="card">
+
 <h2>⏲️ Timer</h2>
-<input type="number" id="timerInput" placeholder="Seconds">
-<div id="timer" class="center" style="font-size:32px">00:00</div>
+
+<input
+id="timerInput"
+type="number"
+placeholder="Seconds">
+
+<h2 id="timer">00:00</h2>
+
 <button onclick="startTimer()">▶️ Start</button>
 <button onclick="stopTimer()">⏸️ Stop</button>
-</div>
 
 </div>
 
-<!-- ================= ASK BOTH ================= -->
+</div>
 
-<div id="both" class="card hidden">
-<h2>⚔️ Ask Both</h2>
+<!-- MORE -->
 
-<input id="bothInput" placeholder="Ask Verity and Nova...">
-<button onclick="askBoth()">Ask Both</button>
+<div id="extra" class="hidden">
 
 <div class="card">
-<h3>👦 Verity</h3>
-<p id="bothVerity">Waiting...</p>
+
+<h2>🎯 Daily Challenge</h2>
+
+<p id="dailyQuestion">
+What is 10 × 2?
+</p>
+
+<button onclick="dailyAnswer()">Answer</button>
+
+<p id="dailyResult"></p>
+
 </div>
 
 <div class="card">
-<h3>👧 Nova</h3>
-<p id="bothNova">Waiting...</p>
-</div>
+
+<h2>📝 Notes</h2>
+
+<textarea id="notes"></textarea>
+
+<button onclick="saveNotes()">💾 Save</button>
+<button onclick="clearNotes()">🗑️ Clear</button>
+
+<p id="notesResult"></p>
+
 </div>
 
-<!-- ================= SETTINGS ================= -->
+<div class="card">
+
+<h2>🔊 Text to Speech</h2>
+
+<textarea
+id="speechText"
+placeholder="Enter text..."></textarea>
+
+<button onclick="speakText()">🔊 Speak</button>
+
+</div>
+
+<div class="card">
+
+<h2>🎤 Speech to Text</h2>
+
+<textarea
+id="speechInput"
+placeholder="Press the button and speak..."></textarea>
+
+<button onclick="startSpeechRecognition()">🎤 Speak</button>
+
+</div>
+
+<div class="card">
+
+<h2>❤️ Favourite</h2>
+
+<button onclick="toggleFavourite()">
+❤️ Favourite Website
+</button>
+
+<p id="favouriteResult"></p>
+
+</div>
+
+<div class="card">
+
+<h2>⭐ Rating & Review</h2>
+
+<select id="rating">
+
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="2">⭐⭐</option>
+<option value="1">⭐</option>
+
+</select>
+
+<textarea
+id="review"
+placeholder="Write a review..."></textarea>
+
+<button onclick="saveReview()">Save Review</button>
+
+<p id="reviewResult"></p>
+
+</div>
+
+<div class="card">
+
+<h2>⌨️ Typing Speed Test</h2>
+
+<p id="typingText">
+The quick brown fox jumps over the lazy dog.
+</p>
+
+<textarea
+id="typingInput"
+placeholder="Type the sentence..."
+oninput="typingTest()"></textarea>
+
+<p id="typingResult">Start typing!</p>
+
+</div>
+
+</div>
+
+<!-- SETTINGS -->
 
 <div id="settings" class="card hidden">
 
 <h2>⚙️ Settings</h2>
 
-<button onclick="toggleTheme()">🌙 Dark / ☀️ Light</button>
+<button onclick="toggleTheme()">
+🌙 Dark / Light Mode
+</button>
 
-<button onclick="saveSettings()">💾 Save Settings</button>
+<button onclick="saveSettings()">
+💾 Save Settings
+</button>
 
-<button onclick="resetAllProgress()">🗑️ Reset Saved Progress</button>
+<button onclick="logout()">
+🚪 Logout
+</button>
 
-<div class="result">
-<p>Theme: <span id="themeStatus">Dark</span></p>
-<p>XP: <span id="settingsXP">0</span></p>
+</div>
+
+<!-- ACHIEVEMENTS -->
+
+<div class="card">
+
+<h2>🏅 Achievements</h2>
+
+<div class="achievement">
+🥉 Beginner — Start using the app
+</div>
+
+<div class="achievement">
+📚 Learner — Earn 100 XP
+</div>
+
+<div class="achievement">
+🏆 Expert — Earn 500 XP
+</div>
+
+<div class="achievement">
+🧠 Quiz Master — Complete a quiz
 </div>
 
 </div>
 
-<!-- FOOTER -->
+<div class="card" style="text-align:center">
 
-<div class="card center">
 <p>🤖 Verity • 🌸 Nova</p>
 <p>Created by <strong>Code Spark</strong></p>
+
 </div>
 
 </div>
 
 <script>
 
-/* =====================================================
-   XP SYSTEM
-===================================================== */
+/* ================= LOGIN ================= */
 
-let xp = Number(localStorage.getItem("xp") || 0);
+function login(){
+
+    const name=document.getElementById("username")
+        .value.trim();
+
+    if(!name){
+        alert("Please enter your name.");
+        return;
+    }
+
+    localStorage.setItem("username",name);
+
+    document.getElementById("loginSection")
+        .classList.add("hidden");
+
+    document.getElementById("app")
+        .classList.remove("hidden");
+
+}
+
+
+/* ================= START APP ================= */
+
+if(localStorage.getItem("username")){
+
+    document.getElementById("loginSection")
+        .classList.add("hidden");
+
+    document.getElementById("app")
+        .classList.remove("hidden");
+
+}
+
+
+/* ================= NAVIGATION ================= */
+
+function showSection(id){
+
+    const sections=[
+        "bots",
+        "quiz",
+        "games",
+        "tools",
+        "extra",
+        "settings"
+    ];
+
+    sections.forEach(function(section){
+
+        const element=document.getElementById(section);
+
+        if(element){
+            element.classList.add("hidden");
+        }
+
+    });
+
+    document.getElementById(id)
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ================= XP ================= */
+
+let xp=Number(localStorage.getItem("xp")||0);
 
 function addXP(amount){
-  xp += amount;
-  localStorage.setItem("xp",xp);
-  updateXP();
+
+    xp+=amount;
+
+    localStorage.setItem("xp",xp);
+
+    updateXP();
+
 }
 
 function updateXP(){
 
-  let level=Math.floor(xp/100)+1;
-  let progress=xp%100;
+    const level=Math.floor(xp/100)+1;
+    const progress=xp%100;
 
-  document.getElementById("xpText").textContent=xp;
-  document.getElementById("levelText").textContent="Level "+level;
-  document.getElementById("xpFill").style.width=progress+"%";
-  document.getElementById("settingsXP").textContent=xp;
+    document.getElementById("xpText")
+        .textContent=xp;
 
-  let badge="🥉 Beginner";
+    document.getElementById("levelText")
+        .textContent="Level "+level;
 
-  if(xp>=500) badge="🏆 Expert";
-  else if(xp>=200) badge="🥈 Learner";
+    document.getElementById("xpFill")
+        .style.width=progress+"%";
 
-  document.getElementById("badgeText").textContent=badge;
+    let badge="🥉 Beginner";
+
+    if(xp>=500){
+        badge="🏆 Expert";
+    }else if(xp>=100){
+        badge="📚 Learner";
+    }
+
+    document.getElementById("badgeText")
+        .textContent=badge;
+
 }
 
 updateXP();
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
 
-function showSection(id){
-
-  const sections=[
-    "bots","quiz","games","tools","both","settings"
-  ];
-
-  sections.forEach(x=>{
-    document.getElementById(x).classList.add("hidden");
-  });
-
-  document.getElementById(id).classList.remove("hidden");
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-/* =====================================================
-   SMART MATHS
-===================================================== */
+/* ================= SMART MATH ================= */
 
 function solveMath(text){
 
-  let q=text
-    .toLowerCase()
-    .replace(/what is/g,"")
-    .replace(/calculate/g,"")
-    .replace(/solve/g,"")
-    .replace(/[?=]/g,"")
-    .trim();
+    let expression=text
+        .toLowerCase()
+        .replace(/what is/g,"")
+        .replace(/calculate/g,"")
+        .replace(/solve/g,"")
+        .replace(/\?/g,"")
+        .trim();
 
-  q=q
-    .replace(/×/g,"*")
-    .replace(/÷/g,"/")
-    .replace(/−/g,"-");
+    expression=expression
+        .replace(/×/g,"*")
+        .replace(/÷/g,"/")
+        .replace(/−/g,"-");
 
-  /*
-     Supports simple arithmetic.
-     Example:
-     5 + 3
-     20 * 4
-     100 / 5
-     25% of 200
-  */
-
-  let percent=q.match(
-    /^([\d.]+)\s*%\s*(?:of|from)\s*([\d.]+)$/
-  );
-
-  if(percent){
-    return "🧮 Answer = "+
-      (Number(percent[1])*Number(percent[2])/100);
-  }
-
-  if(!/^[0-9+\-*/().%\s]+$/.test(q)){
-    return null;
-  }
-
-  try{
-
-    let answer=Function(
-      '"use strict";return('+q+')'
-    )();
-
-    if(Number.isFinite(answer)){
-      return "🧮 Answer = "+answer;
+    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
+        return null;
     }
 
-  }catch(e){}
+    try{
 
-  return null;
+        const answer=Function(
+            '"use strict";return('+expression+')'
+        )();
+
+        if(typeof answer==="number" &&
+           Number.isFinite(answer)){
+            return answer;
+        }
+
+    }catch(e){}
+
+    return null;
+
 }
 
-/* =====================================================
-   BOT KNOWLEDGE
-===================================================== */
+
+/* ================= BOT ANSWERS ================= */
 
 function getAnswer(question){
 
-  let q=question.toLowerCase().trim();
+    const q=question.toLowerCase().trim();
 
-  /* MATH FIRST */
+    const mathAnswer=solveMath(question);
 
-  let math=solveMath(question);
+    if(mathAnswer!==null){
+        return "🧮 The answer is "+mathAnswer+".";
+    }
 
-  if(math) return math;
+    if(q.includes("who is your creator")||q==="creator"){
+        return "🤖 My creator is Code Spark.";
+    }
 
-  if(
-    q.includes("who is your creator")||
-    q==="creator"
-  ){
-    return "🤖 My creator is Code Spark.";
-  }
+    if(q.includes("what is math")||q.includes("what is maths")){
+        return "🧮 Mathematics is the study of numbers, patterns, shapes and logical relationships.";
+    }
 
-  if(q.includes("what is a boy"))
-    return "👦 A boy is a male child or young person.";
+    if(q.includes("what is science")){
+        return "🔬 Science is the study of the natural world using evidence.";
+    }
 
-  if(q.includes("what is a girl"))
-    return "👧 A girl is a female child or young person.";
+    if(q.includes("what is physics")){
+        return "⚛️ Physics studies matter, energy, forces and motion.";
+    }
 
-  if(q.includes("what is love"))
-    return "❤️ Love can include care, trust, respect and kindness.";
+    if(q.includes("what is chemistry")){
+        return "🧪 Chemistry studies substances and their changes.";
+    }
 
-  if(q.includes("what is school"))
-    return "🏫 A school is a place where students learn.";
+    if(q.includes("what is biology")){
+        return "🧬 Biology is the study of living organisms.";
+    }
 
-  if(q.includes("what is science"))
-    return "🔬 Science is the study of the natural world using evidence.";
+    if(q.includes("what is environment")){
+        return "🌳 The environment includes living and non-living things around us.";
+    }
 
-  if(q.includes("what is math")||
-     q.includes("what is maths"))
-    return "🧮 Mathematics is the study of numbers, patterns, shapes and logical relationships.";
+    if(q.includes("what is ecosystem")){
+        return "🌱 An ecosystem is a community of living organisms interacting with their environment.";
+    }
 
-  if(q.includes("what is physics"))
-    return "⚛️ Physics studies matter, energy, forces and motion.";
+    if(q.includes("what is photosynthesis")){
+        return "🌿 Photosynthesis is the process by which green plants use sunlight to make food.";
+    }
 
-  if(q.includes("what is chemistry"))
-    return "🧪 Chemistry studies substances and their changes.";
+    if(q.includes("what is water pollution")){
+        return "💧 Water pollution is the contamination of water by harmful substances.";
+    }
 
-  if(q.includes("what is biology"))
-    return "🧬 Biology is the study of living organisms.";
+    if(q.includes("what is air pollution")){
+        return "🌬️ Air pollution occurs when harmful substances contaminate the air.";
+    }
 
-  if(q.includes("what is ai"))
-    return "🤖 AI means Artificial Intelligence.";
+    if(q.includes("what is recycling")){
+        return "♻️ Recycling means processing used materials so they can be used again.";
+    }
 
-  if(q.includes("environment"))
-    return "🌍 The environment includes living things and non-living things around us.";
+    if(q.includes("what is solar energy")){
+        return "☀️ Solar energy is energy obtained from the Sun.";
+    }
 
-  if(q.includes("ecosystem"))
-    return "🌳 An ecosystem is a community of living organisms interacting with their environment.";
+    if(q.includes("what is love")){
+        return "❤️ Love can include care, trust, respect and kindness.";
+    }
 
-  if(q.includes("photosynthesis"))
-    return "🌱 Photosynthesis is the process by which green plants use sunlight to make food.";
+    if(q.includes("what is school")){
+        return "🏫 A school is a place where students learn.";
+    }
 
-  if(q.includes("deforestation"))
-    return "🌲 Deforestation is the removal or clearing of forests.";
+    if(q.includes("boy")){
+        return "👦 A boy is a male child or young person.";
+    }
 
-  if(q.includes("water pollution"))
-    return "💧 Water pollution occurs when harmful substances contaminate water.";
+    if(q.includes("girl")){
+        return "👧 A girl is a female child or young person.";
+    }
 
-  if(q.includes("air pollution"))
-    return "🌬️ Air pollution is the presence of harmful substances in the air.";
+    if(q.includes("period")){
+        return "🌸 Periods, also called menstruation, are a normal part of the menstrual cycle.";
+    }
 
-  if(q.includes("recycling"))
-    return "♻️ Recycling means processing used materials so they can be used again.";
+    if(q.includes("pocso")){
+        return "🛡️ POCSO is India's Protection of Children from Sexual Offences Act.";
+    }
 
-  if(q.includes("global warming"))
-    return "🌡️ Global warming is the long-term increase in Earth's average temperature.";
+    if(q.includes("pregnancy")){
+        return "🌱 Pregnancy can begin when a sperm fertilizes an egg and the fertilized egg implants in the uterus.";
+    }
 
-  if(q.includes("renewable energy"))
-    return "☀️ Renewable energy comes from sources that are naturally replenished.";
+    if(q==="hi"||q==="hello"||q==="hey"){
+        return "😊 Hello! What would you like to learn?";
+    }
 
-  if(q.includes("solar system"))
-    return "🪐 Our Solar System contains the Sun and eight planets, along with many other objects.";
+    if(q.includes("thank")){
+        return "😊 You're welcome!";
+    }
 
-  if(q.includes("red planet"))
-    return "🔴 Mars is called the Red Planet.";
+    return "🤔 I don't have a built-in answer for that yet. Try another question.";
 
-  if(q.includes("largest planet"))
-    return "🪐 Jupiter is the largest planet in our Solar System.";
-
-  if(q.includes("smallest planet"))
-    return "☿ Mercury is the smallest planet in our Solar System.";
-
-  if(q.includes("planet with rings"))
-    return "🪐 Saturn is famous for its beautiful rings.";
-
-  if(q.includes("center of our solar system"))
-    return "☀️ The Sun is at the center of our Solar System.";
-
-  if(q.includes("how many planets"))
-    return "🪐 There are 8 planets in our Solar System.";
-
-  if(q.includes("period"))
-    return "🌸 Periods, or menstruation, are a normal part of the menstrual cycle.";
-
-  if(q.includes("pocso"))
-    return "🛡️ POCSO is India's Protection of Children from Sexual Offences Act.";
-
-  if(q.includes("pregnancy"))
-    return "🌱 Pregnancy can begin when a sperm fertilizes an egg and the fertilized egg implants in the uterus.";
-
-  if(q==="hi"||q==="hello"||q==="hey")
-    return "😊 Hello! What would you like to learn?";
-
-  if(q.includes("thank"))
-    return "😊 You're welcome!";
-
-  return "🤔 I don't have a built-in answer for that yet. Try asking a Maths, Science, Environment or Solar System question.";
 }
+
+
+/* ================= BOTS ================= */
 
 let lastVerity="";
 let lastNova="";
 
 function sendBot(bot){
 
-  let input=document.getElementById(
-    bot==="Verity"?"verityInput":"novaInput"
-  );
+    const input=document.getElementById(
+        bot==="Verity"?"verityInput":"novaInput"
+    );
 
-  let question=input.value.trim();
+    const question=input.value.trim();
 
-  if(!question)return;
+    if(!question)return;
 
-  let box=document.getElementById(
-    bot==="Verity"?"verityMessages":"novaMessages"
-  );
+    const box=document.getElementById(
+        bot==="Verity"?"verityMessages":"novaMessages"
+    );
 
-  addMessage(box,question,"user");
+    addMessage(box,question,"user");
 
-  let answer=getAnswer(question);
+    const answer=getAnswer(question);
 
-  if(bot==="Verity") lastVerity=answer;
-  else lastNova=answer;
+    if(bot==="Verity"){
+        lastVerity=answer;
+    }else{
+        lastNova=answer;
+    }
 
-  setTimeout(()=>{
-    addMessage(box,answer,"bot");
-  },150);
+    setTimeout(function(){
 
-  input.value="";
-  addXP(5);
+        addMessage(box,answer,"bot");
+
+    },150);
+
+    input.value="";
+
+    addXP(5);
+
 }
 
 function addMessage(box,text,type){
 
-  let message=document.createElement("div");
+    const message=document.createElement("div");
 
-  message.className="message "+type;
-  message.textContent=text;
+    message.className="message "+type;
 
-  box.appendChild(message);
-  box.scrollTop=box.scrollHeight;
+    message.textContent=text;
+
+    box.appendChild(message);
+
+    box.scrollTop=box.scrollHeight;
+
 }
 
 function speakLast(bot){
 
-  let text=bot==="Verity"?lastVerity:lastNova;
+    const text=bot==="Verity"?lastVerity:lastNova;
 
-  if(!text){
-    alert("Ask a question first.");
-    return;
-  }
+    if(!text){
+        alert("Ask a question first.");
+        return;
+    }
 
-  if(!("speechSynthesis" in window)){
-    alert("Speech is not supported.");
-    return;
-  }
+    if(!("speechSynthesis" in window)){
+        alert("Speech is not supported.");
+        return;
+    }
 
-  speechSynthesis.cancel();
+    speechSynthesis.cancel();
 
-  let speech=new SpeechSynthesisUtterance(text);
-  speech.lang="en-US";
+    const speech=new SpeechSynthesisUtterance(text);
 
-  speechSynthesis.speak(speech);
+    speech.lang="en-US";
+
+    speechSynthesis.speak(speech);
+
 }
 
 function clearChat(bot){
 
-  let id=bot==="Verity"
-    ?"verityMessages"
-    :"novaMessages";
+    const id=bot==="Verity"
+        ?"verityMessages"
+        :"novaMessages";
 
-  document.getElementById(id).innerHTML=
-    '<div class="message bot">'+
-    (bot==="Verity"
-      ?"🤖 Hello! I am Verity."
-      :"🌸 Hello! I am Nova.")+
-    '</div>';
+    document.getElementById(id).innerHTML=
+        '<div class="message bot">'+
+        (bot==="Verity"
+            ?"🤖 Hello! I am Verity."
+            :"🌸 Hello! I am Nova.")+
+        "</div>";
+
 }
 
+
 /* =====================================================
-   QUIZ QUESTION BANK
-===================================================== */
+   QUIZ QUESTIONS
+   300 QUESTIONS
+   Duplicate basic questions removed
+   ===================================================== */
 
 const questions=[
 
-/* MATHS */
+/* ================= SOLAR SYSTEM ================= */
 
 {
- q:"What is 5 + 3?",
- a:["6","7","8","9"],
- c:2
-},
-{
- q:"What is 10 − 4?",
- a:["5","6","7","8"],
- c:1
-},
-{
- q:"What is 7 × 3?",
- a:["18","21","24","27"],
- c:1
-},
-{
- q:"What is 20 ÷ 4?",
- a:["4","5","6","8"],
- c:1
-},
-{
- q:"What is 50% of 100?",
- a:["25","50","75","100"],
- c:1
-},
-{
- q:"How many sides does a triangle have?",
- a:["2","3","4","5"],
- c:1
-},
-{
- q:"How many degrees are in a right angle?",
- a:["45°","90°","180°","360°"],
- c:1
-},
-{
- q:"How many centimetres are in 1 metre?",
- a:["10","50","100","1000"],
- c:2
-},
-{
- q:"What is 1/2 of 20?",
- a:["5","10","15","20"],
- c:1
-},
-{
- q:"What is 10 × 10?",
- a:["10","50","100","1000"],
- c:2
+q:"What is at the center of our Solar System?",
+a:["Earth","Moon","Sun","Jupiter"],
+c:2
 },
 
-/* ENVIRONMENT */
-
 {
- q:"What is the environment?",
- a:[
- "Only forests",
- "Only animals",
- "Our surroundings including living and non-living things",
- "Only air"
- ],
- c:2
-},
-{
- q:"What gas do plants release during photosynthesis?",
- a:["Oxygen","Nitrogen","Helium","Hydrogen"],
- c:0
-},
-{
- q:"What gas do plants take in?",
- a:["Oxygen","Carbon dioxide","Helium","Hydrogen"],
- c:1
-},
-{
- q:"What is deforestation?",
- a:[
- "Planting trees",
- "Removing forests",
- "Cleaning rivers",
- "Recycling"
- ],
- c:1
-},
-{
- q:"What is water pollution?",
- a:[
- "Clean water",
- "Contamination of water",
- "Water evaporation",
- "Rainfall"
- ],
- c:1
-},
-{
- q:"What are the three Rs?",
- a:[
- "Read, Run, Rest",
- "Reduce, Reuse, Recycle",
- "Rain, River, Rock",
- "Repair, Run, Reuse"
- ],
- c:1
-},
-{
- q:"What is recycling?",
- a:[
- "Throwing waste away",
- "Burning all waste",
- "Processing used materials for reuse",
- "Making pollution"
- ],
- c:2
-},
-{
- q:"What is biodiversity?",
- a:[
- "Variety of living organisms",
- "Only plants",
- "Only animals",
- "Only forests"
- ],
- c:0
-},
-{
- q:"What is renewable energy?",
- a:[
- "Energy from naturally replenished sources",
- "Energy that never exists",
- "Only coal",
- "Only plastic"
- ],
- c:0
-},
-{
- q:"Which is a renewable energy source?",
- a:["Coal","Oil","Solar energy","Natural gas"],
- c:2
+q:"Is the Sun a star or a planet?",
+a:["Planet","Star","Moon","Asteroid"],
+c:1
 },
 
-/* SOLAR SYSTEM */
-
 {
- q:"What is at the center of our Solar System?",
- a:["Earth","Moon","Sun","Mars"],
- c:2
-},
-{
- q:"How many planets are in our Solar System?",
- a:["7","8","9","10"],
- c:1
-},
-{
- q:"Which planet is called the Red Planet?",
- a:["Venus","Mars","Jupiter","Mercury"],
- c:1
-},
-{
- q:"Which is the largest planet?",
- a:["Earth","Saturn","Jupiter","Neptune"],
- c:2
-},
-{
- q:"Which is the smallest planet?",
- a:["Mars","Mercury","Venus","Earth"],
- c:1
-},
-{
- q:"Which planet is famous for its rings?",
- a:["Earth","Mars","Saturn","Mercury"],
- c:2
-},
-{
- q:"Which planet is closest to the Sun?",
- a:["Venus","Earth","Mercury","Mars"],
- c:2
-},
-{
- q:"Which planet is farthest from the Sun?",
- a:["Saturn","Uranus","Neptune","Jupiter"],
- c:2
-},
-{
- q:"Which planet is known for the Great Red Spot?",
- a:["Mars","Jupiter","Venus","Neptune"],
- c:1
-},
-{
- q:"Which planet rotates on its side?",
- a:["Earth","Mars","Uranus","Mercury"],
- c:2
-},
-{
- q:"What is Earth's natural satellite?",
- a:["Sun","Moon","Mars","Venus"],
- c:1
-},
-{
- q:"Is the Moon a planet?",
- a:["Yes","No","Sometimes","Only at night"],
- c:1
-},
-{
- q:"Does the Moon have its own light?",
- a:["Yes","No","Only during full moon","Sometimes"],
- c:1
-},
-{
- q:"Which planet is known as Earth's twin?",
- a:["Venus","Mars","Jupiter","Saturn"],
- c:0
-},
-{
- q:"Which planet is an ice giant?",
- a:["Mercury","Venus","Uranus","Mars"],
- c:2
+q:"What is the main source of energy for Earth?",
+a:["Moon","Sun","Mars","Jupiter"],
+c:1
 },
 
-/* SCIENCE / GK */
+{
+q:"What is the Sun mostly made of?",
+a:["Iron and rock","Water and ice","Hydrogen and helium","Oxygen and nitrogen"],
+c:2
+},
 
 {
- q:"What does AI stand for?",
- a:[
- "Artificial Intelligence",
- "Automatic Internet",
- "Advanced Information",
- "Artificial Internet"
- ],
- c:0
+q:"Is the Sun bigger than Earth?",
+a:["Yes","No","They are the same size","Sometimes"],
+c:0
 },
+
 {
- q:"Which gas do humans need to breathe?",
- a:["Oxygen","Helium","Hydrogen","Neon"],
- c:0
+q:"How does the Sun give us light?",
+a:["By reflecting Moonlight","Through nuclear fusion","By burning wood","By reflecting Earth's light"],
+c:1
 },
+
 {
- q:"What is biology?",
- a:[
- "Study of living organisms",
- "Study of stars",
- "Study of rocks only",
- "Study of numbers"
- ],
- c:0
+q:"What is the visible surface of the Sun called?",
+a:["Photosphere","Atmosphere","Crust","Mantle"],
+c:0
 },
+
 {
- q:"What is physics?",
- a:[
- "Study of matter, energy and forces",
- "Study of languages",
- "Study of history",
- "Study of music"
- ],
- c:0
+q:"Does the Sun have its own light?",
+a:["Yes","No","Only at night","Only during summer"],
+c:0
 },
+
 {
- q:"What is chemistry?",
- a:[
- "Study of substances and their changes",
- "Study of planets only",
- "Study of sports",
- "Study of languages"
- ],
- c:0
+q:"How hot is the Sun's surface approximately?",
+a:["500°C","1,000°C","5,500°C","50°C"],
+c:2
+},
+
+{
+q:"How long does sunlight take to reach Earth?",
+a:["About 8 minutes","About 1 hour","About 1 day","About 1 second"],
+c:0
+},
+
+{
+q:"What is the third planet from the Sun?",
+a:["Venus","Mars","Earth","Mercury"],
+c:2
+},
+
+{
+q:"Does Earth have one Moon?",
+a:["Yes","No","Two","Three"],
+c:0
+},
+
+{
+q:"What causes day and night on Earth?",
+a:["Earth's revolution","Earth's rotation","The Moon's rotation","The Sun's movement around Earth"],
+c:1
+},
+
+{
+q:"How long does Earth take to orbit the Sun?",
+a:["About 24 hours","About 7 days","About 365 days","About 30 days"],
+c:2
+},
+
+{
+q:"How long does Earth take to rotate once?",
+a:["About 24 hours","About 12 hours","About 365 days","About 30 days"],
+c:0
+},
+
+{
+q:"About what percentage of Earth's surface is covered by water?",
+a:["20%","50%","71%","90%"],
+c:2
+},
+
+{
+q:"What is Earth's natural satellite?",
+a:["Sun","Mars","Moon","Venus"],
+c:2
+},
+
+{
+q:"Is Earth a rocky planet?",
+a:["Yes","No","It is a gas giant","It is an ice giant"],
+c:0
+},
+
+{
+q:"Why is Earth suitable for life?",
+a:["It has liquid water and a suitable atmosphere","It has no atmosphere","It is the hottest planet","It has no sunlight"],
+c:0
+},
+
+{
+q:"What is the Moon?",
+a:["A star","A planet","Earth's natural satellite","An asteroid"],
+c:2
+},
+
+{
+q:"Is the Moon a planet?",
+a:["Yes","No","Sometimes","Only at night"],
+c:1
+},
+
+{
+q:"What is the Moon's surface mainly covered with?",
+a:["Water","Rock and dust","Grass","Ice only"],
+c:1
+},
+
+{
+q:"Does the Moon have its own light?",
+a:["Yes","No","Only during a full moon","Only during a new moon"],
+c:1
+},
+
+{
+q:"Why does the Moon appear to shine?",
+a:["It produces light","It reflects sunlight","It reflects Earth's light only","It contains fire"],
+c:1
+},
+
+{
+q:"About how long does the Moon take to orbit Earth?",
+a:["About 1 day","About 7 days","About 27 days","About 365 days"],
+c:2
+},
+
+{
+q:"What causes the phases of the Moon?",
+a:["Earth's shadow every night","The changing positions of the Sun, Earth and Moon","Clouds","The Moon changing shape"],
+c:1
+},
+
+{
+q:"What is a full moon?",
+a:["When we see nearly the whole illuminated side","When the Moon disappears","When the Moon is closest to Earth","When the Moon produces its own light"],
+c:0
+},
+
+{
+q:"What is a new moon?",
+a:["When the Moon is completely full","When the Moon is between Earth and Sun and its lit side faces away from us","When the Moon turns red","When the Moon disappears from space"],
+c:1
+},
+
+{
+q:"Have humans landed on the Moon?",
+a:["Yes","No","Only robots","Only animals"],
+c:0
+},
+
+{
+q:"How many planets are in our Solar System?",
+a:["7","8","9","10"],
+c:1
+},
+
+{
+q:"Which planet is closest to the Sun?",
+a:["Venus","Earth","Mercury","Mars"],
+c:2
+},
+
+{
+q:"Which planet is farthest from the Sun?",
+a:["Saturn","Uranus","Neptune","Jupiter"],
+c:2
+},
+
+{
+q:"Which is the largest planet?",
+a:["Earth","Saturn","Jupiter","Neptune"],
+c:2
+},
+
+{
+q:"Which is the smallest planet?",
+a:["Mars","Mercury","Venus","Earth"],
+c:1
+},
+
+{
+q:"Which planet is known as the Red Planet?",
+a:["Venus","Mars","Jupiter","Mercury"],
+c:1
+},
+
+{
+q:"Which planet is famous for its rings?",
+a:["Earth","Mars","Saturn","Venus"],
+c:2
+},
+
+{
+q:"Which planet is often called Earth's twin?",
+a:["Mars","Venus","Jupiter","Mercury"],
+c:1
+},
+
+{
+q:"Which planet has the Great Red Spot?",
+a:["Saturn","Mars","Jupiter","Neptune"],
+c:2
+},
+
+{
+q:"Which planet rotates on its side?",
+a:["Uranus","Earth","Mars","Venus"],
+c:0
+},
+
+{
+q:"Does Mercury have any moons?",
+a:["Yes, one","Yes, two","No","Yes, many"],
+c:2
+},
+
+{
+q:"Is Mercury bigger or smaller than Earth?",
+a:["Bigger","Smaller","Same size","Much bigger"],
+c:1
+},
+
+{
+q:"Does Mercury have a thick atmosphere?",
+a:["Yes","No, it has a very thin exosphere","Yes, like Venus","It has no space around it"],
+c:1
+},
+
+{
+q:"Is Mercury the hottest planet?",
+a:["Yes","No","Sometimes","Always at night"],
+c:1
+},
+
+{
+q:"What is Mercury's surface covered with?",
+a:["Oceans","Rock and many craters","Trees","Thick ice only"],
+c:1
+},
+
+{
+q:"Does Mercury have rings?",
+a:["Yes","No","Four rings","One ring"],
+c:1
+},
+
+{
+q:"Is Mercury larger than Jupiter?",
+a:["Yes","No","They are equal","Sometimes"],
+c:1
+},
+
+{
+q:"Which planet is the hottest in the Solar System?",
+a:["Mercury","Venus","Mars","Jupiter"],
+c:1
+},
+
+{
+q:"Does Venus have any moons?",
+a:["Yes, one","Yes, two","No","Yes, five"],
+c:2
+},
+
+{
+q:"Does Venus have rings?",
+a:["Yes","No","Two rings","Many rings"],
+c:1
+},
+
+{
+q:"Is Venus a rocky planet?",
+a:["Yes","No","It is a gas giant","It is an ice giant"],
+c:0
+},
+
+{
+q:"Which direction does Venus rotate?",
+a:["Only eastward","Backward compared with most planets","It does not rotate","Northward"],
+c:1
+},
+
+{
+q:"Is Venus closer to the Sun than Earth?",
+a:["Yes","No","They are equal","Sometimes"],
+c:0
+},
+
+{
+q:"Does Venus have a thick atmosphere?",
+a:["Yes","No","It has no atmosphere","Only at night"],
+c:0
+},
+
+{
+q:"Can humans live on Venus without special equipment?",
+a:["Yes","No","Only during daytime","Only during winter"],
+c:1
+},
+
+{
+q:"What makes Venus extremely hot?",
+a:["Its oceans","A powerful greenhouse effect","Its rings","Its moons"],
+c:1
+},
+
+{
+q:"Why does Mars look red?",
+a:["Because of red clouds","Because of iron minerals that have oxidized","Because it is on fire","Because of sunlight"],
+c:1
+},
+
+{
+q:"Does Mars have moons?",
+a:["Yes","No","Only one","Only three"],
+c:0
+},
+
+{
+q:"What are the names of Mars's two moons?",
+a:["Titan and Europa","Phobos and Deimos","Io and Ganymede","Triton and Titan"],
+c:1
+},
+
+{
+q:"Is Mars bigger or smaller than Earth?",
+a:["Bigger","Smaller","Same size","Much bigger"],
+c:1
+},
+
+{
+q:"Is Mars a rocky planet?",
+a:["Yes","No","It is a gas giant","It is an ice giant"],
+c:0
+},
+
+{
+q:"Does Mars have polar ice caps?",
+a:["Yes","No","Only one","Only during summer"],
+c:0
+},
+
+{
+q:"Could Mars have had water in the past?",
+a:["Yes","No","Never","Only as clouds"],
+c:0
+},
+
+{
+q:"Is Mars closer to the Sun than Earth?",
+a:["Yes","No","They are the same distance","Sometimes"],
+c:1
+},
+
+{
+q:"Do scientists study Mars for signs of past life?",
+a:["Yes","No","Only for weather","Only for its moons"],
+c:0
+},
+
+{
+q:"Is Jupiter a gas giant?",
+a:["Yes","No","It is a rocky planet","It is an ice giant"],
+c:0
+},
+
+{
+q:"How many moons does Jupiter have?",
+a:["4","10","More than 90 known moons","1"],
+c:2
+},
+
+{
+q:"What is the Great Red Spot?",
+a:["A mountain","A giant storm","A volcano","A moon"],
+c:1
+},
+
+{
+q:"Does Jupiter have rings?",
+a:["Yes","No","Only one","Four hundred"],
+c:0
+},
+
+{
+q:"Is Jupiter bigger than Earth?",
+a:["Yes","No","They are equal","Sometimes"],
+c:0
+},
+
+{
+q:"Is Jupiter closer to the Sun than Saturn?",
+a:["Yes","No","They are equally distant","Sometimes"],
+c:0
+},
+
+{
+q:"Does Jupiter have a solid surface like Earth?",
+a:["Yes","No","Only at the top","Only at night"],
+c:1
+},
+
+{
+q:"What gases are mainly found in Jupiter's atmosphere?",
+a:["Hydrogen and helium","Oxygen and nitrogen","Carbon dioxide and oxygen","Hydrogen and oxygen"],
+c:0
+},
+
+{
+q:"Which planet has the strongest gravity among the planets?",
+a:["Earth","Mars","Jupiter","Venus"],
+c:2
+},
+
+{
+q:"Which planet is famous for its beautiful rings?",
+a:["Mars","Saturn","Venus","Mercury"],
+c:1
+},
+
+{
+q:"Is Saturn a gas giant?",
+a:["Yes","No","It is rocky","It is an ice giant"],
+c:0
+},
+
+{
+q:"Is Saturn bigger than Earth?",
+a:["Yes","No","Same size","Sometimes"],
+c:0
+},
+
+{
+q:"Does Saturn have moons?",
+a:["Yes","No","Only one","None"],
+c:0
+},
+
+{
+q:"What are Saturn's rings mainly made of?",
+a:["Fire","Rock and ice particles","Gas only","Liquid water"],
+c:1
+},
+
+{
+q:"Is Saturn farther from the Sun than Jupiter?",
+a:["Yes","No","Same distance","Sometimes"],
+c:0
+},
+
+{
+q:"Does Saturn have a solid surface like Earth?",
+a:["Yes","No","Only on its rings","Only near its poles"],
+c:1
+},
+
+{
+q:"What is Saturn's largest moon called?",
+a:["Europa","Titan","Phobos","Triton"],
+c:1
+},
+
+{
+q:"Which planet is seventh from the Sun?",
+a:["Saturn","Uranus","Neptune","Jupiter"],
+c:1
+},
+
+{
+q:"Which planet is eighth from the Sun?",
+a:["Uranus","Neptune","Saturn","Jupiter"],
+c:1
+},
+
+{
+q:"What color does Uranus generally appear?",
+a:["Blue-green","Red","Yellow","Orange"],
+c:0
+},
+
+{
+q:"What color does Neptune generally appear?",
+a:["Red","Blue","Yellow","Brown"],
+c:1
+},
+
+{
+q:"Is Uranus an ice giant?",
+a:["Yes","No","It is a rocky planet","It is a dwarf planet"],
+c:0
+},
+
+{
+q:"Is Neptune an ice giant?",
+a:["Yes","No","It is a rocky planet","It is a gas giant like Jupiter"],
+c:0
+},
+
+{
+q:"Which planet has very strong winds?",
+a:["Neptune","Mercury","Earth","Venus"],
+c:0
+},
+
+{
+q:"Does Neptune have rings?",
+a:["Yes","No","Only one","It has no rings but has moons"],
+c:0
+},
+
+{
+q:"What is the region beyond Neptune containing many icy objects called?",
+a:["Asteroid Belt","Kuiper Belt","Solar Core","Oort Planet"],
+c:1
+},
+
+/* ================= ENVIRONMENT ================= */
+
+{
+q:"What is the environment?",
+a:["Only plants","Only animals","Everything around us, including living and non-living things","Only air"],
+c:2
+},
+
+{
+q:"What are the main parts of the environment?",
+a:["Living and non-living things","Only animals","Only water","Only plants"],
+c:0
+},
+
+{
+q:"What is nature?",
+a:["The natural world around us","Only buildings","Only roads","Only machines"],
+c:0
+},
+
+{
+q:"Why is the environment important?",
+a:["It provides resources needed for life","It makes cars","It creates buildings","It makes computers"],
+c:0
+},
+
+{
+q:"What is an ecosystem?",
+a:["A group of buildings","Living things interacting with each other and their surroundings","Only plants","Only animals"],
+c:1
+},
+
+{
+q:"What are living things?",
+a:["Rocks","Water","Plants and animals","Air"],
+c:2
+},
+
+{
+q:"Which is a non-living thing?",
+a:["Dog","Tree","Rock","Bird"],
+c:2
+},
+
+{
+q:"What is biodiversity?",
+a:["Variety of living organisms","Amount of water","Number of buildings","Amount of soil"],
+c:0
+},
+
+{
+q:"What is a habitat?",
+a:["A place where an organism lives","A type of pollution","A type of weather","A type of plant"],
+c:0
+},
+
+{
+q:"What is a natural resource?",
+a:["A resource obtained from nature","A plastic toy","A computer","A car"],
+c:0
+},
+
+{
+q:"Why are plants important?",
+a:["They produce oxygen and provide food","They produce plastic","They cause pollution","They use all the water"],
+c:0
+},
+
+{
+q:"What gas do plants release during photosynthesis?",
+a:["Carbon dioxide","Oxygen","Nitrogen","Hydrogen"],
+c:1
+},
+
+{
+q:"What gas do plants take in during photosynthesis?",
+a:["Oxygen","Carbon dioxide","Hydrogen","Helium"],
+c:1
+},
+
+{
+q:"What is photosynthesis?",
+a:["Process by which plants make food using light","Process of rainfall","Process of recycling","Process of pollution"],
+c:0
+},
+
+{
+q:"Why are forests important?",
+a:["They support biodiversity and help regulate climate","They increase pollution","They produce plastic","They remove all water"],
+c:0
+},
+
+{
+q:"What is deforestation?",
+a:["Planting trees","Cutting or clearing forests","Recycling paper","Cleaning rivers"],
+c:1
+},
+
+{
+q:"What can cause deforestation?",
+a:["Farming and logging","Recycling","Rainfall","Planting trees"],
+c:0
+},
+
+{
+q:"How can we reduce deforestation?",
+a:["Plant and protect trees","Cut more trees","Burn forests","Waste paper"],
+c:0
+},
+
+{
+q:"What is afforestation?",
+a:["Planting trees in areas without forests","Cutting trees","Polluting forests","Removing plants"],
+c:0
+},
+
+{
+q:"How do trees help clean the air?",
+a:["By absorbing carbon dioxide and releasing oxygen","By producing smoke","By removing oxygen","By producing plastic"],
+c:0
+},
+
+{
+q:"Why is water important?",
+a:["All living things need it","Only cars need it","Only plants need it","It is used only for swimming"],
+c:0
+},
+
+{
+q:"Which is a source of water?",
+a:["Rivers","Roads","Buildings","Plastic"],
+c:0
+},
+
+{
+q:"What is the water cycle?",
+a:["Continuous movement of water through the environment","Movement of cars","Movement of animals","Movement of soil"],
+c:0
+},
+
+{
+q:"What is evaporation?",
+a:["Liquid water changing into water vapour","Vapour changing into liquid","Water freezing","Rain falling"],
+c:0
+},
+
+{
+q:"What is condensation?",
+a:["Liquid changing into gas","Water vapour changing into liquid","Water freezing only","Rain falling"],
+c:1
+},
+
+{
+q:"What is precipitation?",
+a:["Water falling from clouds","Water becoming vapour","Water freezing underground","Water being filtered"],
+c:0
+},
+
+{
+q:"What is water pollution?",
+a:["Contamination of water","Cleaning water","Saving water","Collecting rainwater"],
+c:0
+},
+
+{
+q:"What can cause water pollution?",
+a:["Sewage and harmful chemicals","Clean rainwater","Planting trees","Recycling"],
+c:0
+},
+
+{
+q:"How can we prevent water pollution?",
+a:["Avoid dumping waste into water","Throw plastic into rivers","Pour chemicals into lakes","Dump sewage into rivers"],
+c:0
+},
+
+{
+q:"Why should we save water?",
+a:["Fresh water is limited and essential for life","Water is unlimited","Water is not useful","Only animals need water"],
+c:0
+},
+
+{
+q:"Why is clean air important?",
+a:["We need it to breathe","It makes plastic","It produces waste","It creates roads"],
+c:0
+},
+
+{
+q:"What is air pollution?",
+a:["Harmful substances contaminating the air","Clean air","Fresh water","Clean soil"],
+c:0
+},
+
+{
+q:"What can cause air pollution?",
+a:["Vehicle exhaust and factory emissions","Planting trees","Recycling","Walking"],
+c:0
+},
+
+{
+q:"What is smoke pollution?",
+a:["Pollution caused by smoke and harmful particles","Clean air","Water pollution","Soil formation"],
+c:0
+},
+
+{
+q:"How do vehicles cause air pollution?",
+a:["By releasing exhaust gases","By planting trees","By producing oxygen","By cleaning the air"],
+c:0
+},
+
+{
+q:"How can factories cause air pollution?",
+a:["By releasing pollutants into the air","By planting forests","By recycling paper","By saving water"],
+c:0
+},
+
+{
+q:"How can we reduce air pollution?",
+a:["Use cleaner energy and public transport","Burn more waste","Cut down forests","Use more fossil fuels"],
+c:0
+},
+
+{
+q:"Why are trees useful for clean air?",
+a:["They absorb carbon dioxide","They produce smoke","They remove all oxygen","They produce plastic"],
+c:0
+},
+
+{
+q:"What is a greenhouse gas?",
+a:["A gas that contributes to the greenhouse effect","A type of tree","A type of soil","A type of water"],
+c:0
+},
+
+{
+q:"What is the atmosphere?",
+a:["The layer of gases surrounding Earth","Earth's oceans","Earth's rocks","Earth's forests"],
+c:0
+},
+
+{
+q:"What is waste?",
+a:["Unwanted material that is discarded","Fresh food","Clean water","Fresh air"],
+c:0
+},
+
+{
+q:"What is solid waste?",
+a:["Waste in solid form","Only gases","Only liquids","Sunlight"],
+c:0
+},
+
+{
+q:"What is plastic pollution?",
+a:["Pollution caused by plastic waste","Pollution caused by sunlight","Clean water","Clean air"],
+c:0
+},
+
+{
+q:"Why can plastic be harmful to the environment?",
+a:["It can persist for a very long time and harm wildlife","It disappears immediately","It produces oxygen","It cleans rivers"],
+c:0
+},
+
+{
+q:"What is recycling?",
+a:["Processing waste into reusable materials","Burning all waste","Throwing waste away","Producing more waste"],
+c:0
+},
+
+{
+q:"What is reuse?",
+a:["Using an item again","Throwing it away","Burning it","Burying it"],
+c:0
+},
+
+{
+q:"What is waste reduction?",
+a:["Producing less waste","Producing more waste","Burning waste","Throwing waste into rivers"],
+c:0
+},
+
+{
+q:"What is biodegradable waste?",
+a:["Waste that can be broken down naturally","Waste that never breaks down","Metal only","Glass only"],
+c:0
+},
+
+{
+q:"What is non-biodegradable waste?",
+a:["Waste that does not easily break down naturally","Fruit peels","Leaves","Food scraps"],
+c:0
+},
+
+{
+q:"What are the three Rs?",
+a:["Reduce, Reuse, Recycle","Read, Run, Rest","Repair, Run, Remove","Reduce, Remove, Return"],
+c:0
+},
+
+{
+q:"Why should we recycle?",
+a:["To reduce waste and conserve resources","To increase pollution","To waste materials","To cut more trees"],
+c:0
+},
+
+{
+q:"Which material can commonly be recycled?",
+a:["Paper","Food scraps only","Soil","Smoke"],
+c:0
+},
+
+{
+q:"Can paper be recycled?",
+a:["Yes","No","Only once","Never"],
+c:0
+},
+
+{
+q:"Can glass be recycled?",
+a:["Yes","No","Only in forests","Only in oceans"],
+c:0
+},
+
+{
+q:"Can metal be recycled?",
+a:["Yes","No","Never","Only once"],
+c:0
+},
+
+{
+q:"Can some plastics be recycled?",
+a:["Yes","No plastic can ever be recycled","Only plastic in oceans","Only plastic bags"],
+c:0
+},
+
+{
+q:"What is a recycling bin?",
+a:["A container for recyclable materials","A water tank","A food cooker","A plant pot"],
+c:0
+},
+
+{
+q:"Why should waste be separated?",
+a:["To make recycling and proper disposal easier","To increase pollution","To waste resources","To make more plastic"],
+c:0
+},
+
+{
+q:"What is composting?",
+a:["Turning suitable organic waste into compost","Burning plastic","Recycling metal","Cleaning air"],
+c:0
+},
+
+{
+q:"Which waste can commonly be composted?",
+a:["Fruit and vegetable scraps","Glass bottles","Metal cans","Plastic bags"],
+c:0
+},
+
+{
+q:"Why are animals important?",
+a:["They are part of ecosystems and biodiversity","They only make noise","They cause all pollution","They produce plastic"],
+c:0
+},
+
+{
+q:"What is wildlife?",
+a:["Animals and plants living in natural habitats","Only pets","Only farm animals","Only humans"],
+c:0
+},
+
+{
+q:"What is an endangered species?",
+a:["A species at risk of extinction","A common species","A newly born animal","A domestic animal"],
+c:0
+},
+
+{
+q:"Why do some animals become endangered?",
+a:["Habitat loss, hunting and other threats","Because they sleep","Because they drink water","Because they eat plants"],
+c:0
+},
+
+{
+q:"How does habitat loss affect animals?",
+a:["It can reduce food, shelter and breeding areas","It always helps them","It gives them more space","It creates new forests"],
+c:0
+},
+
+{
+q:"What is wildlife conservation?",
+a:["Protecting wildlife and their habitats","Hunting animals","Destroying forests","Polluting rivers"],
+c:0
+},
+
+{
+q:"Why should we protect wild animals?",
+a:["To maintain biodiversity and healthy ecosystems","To make pollution","To remove forests","To increase waste"],
+c:0
+},
+
+{
+q:"What is a food chain?",
+a:["A sequence showing how energy passes between organisms","A restaurant","A group of buildings","A type of pollution"],
+c:0
+},
+
+{
+q:"What is a food web?",
+a:["A network of interconnected food chains","A spider's web only","A type of forest","A type of weather"],
+c:0
+},
+
+{
+q:"What is climate?",
+a:["The long-term pattern of weather in an area","Today's temperature only","A type of pollution","A type of soil"],
+c:0
+},
+
+{
+q:"What is weather?",
+a:["Short-term conditions of the atmosphere","Long-term climate only","A type of plant","A type of animal"],
+c:0
+},
+
+{
+q:"What is climate change?",
+a:["Long-term changes in Earth's climate patterns","Daily sunrise","A change in seasons only","A type of rainfall"],
+c:0
+},
+
+{
+q:"What is global warming?",
+a:["Long-term rise in Earth's average temperature","Cooling of Earth","Daily weather change","Ocean waves"],
+c:0
+},
+
+{
+q:"What is a major cause of current global warming?",
+a:["Increased greenhouse gas emissions from human activities","Moonlight","Ocean waves","Earth's rotation"],
+c:0
+},
+
+{
+q:"What is the greenhouse effect?",
+a:["Warming caused when certain gases trap heat in the atmosphere","Cooling caused by trees","Formation of clouds only","Movement of oceans"],
+c:0
+},
+
+{
+q:"How does deforestation affect climate?",
+a:["It can increase greenhouse gas emissions and reduce carbon storage","It always cools Earth","It creates more forests","It removes all carbon dioxide"],
+c:0
+},
+
+{
+q:"How can we reduce greenhouse gas emissions?",
+a:["Use cleaner energy and save energy","Burn more fossil fuels","Cut more forests","Waste electricity"],
+c:0
+},
+
+{
+q:"Why is renewable energy useful?",
+a:["It can reduce dependence on fossil fuels","It always creates more pollution","It uses only coal","It destroys forests"],
+c:0
+},
+
+{
+q:"What is one effect of climate change?",
+a:["Rising temperatures and changing weather patterns","More oxygen everywhere","Less sunlight reaching Earth","Earth stopping its rotation"],
+c:0
+},
+
+{
+q:"What is renewable energy?",
+a:["Energy from sources that naturally replenish","Energy only from coal","Energy from plastic","Energy from waste only"],
+c:0
+},
+
+{
+q:"What is solar energy?",
+a:["Energy from the Sun","Energy from coal","Energy from rocks","Energy from plastic"],
+c:0
+},
+
+{
+q:"What is wind energy?",
+a:["Energy obtained from moving air","Energy from sunlight","Energy from coal","Energy from soil"],
+c:0
+},
+
+{
+q:"What is hydropower?",
+a:["Electricity generated using moving water","Electricity from sunlight","Electricity from coal","Electricity from plastic"],
+c:0
+},
+
+{
+q:"What is biomass energy?",
+a:["Energy produced from organic materials","Energy from sunlight only","Energy from wind only","Energy from metal"],
+c:0
+},
+
+{
+q:"Is sunlight renewable?",
+a:["Yes","No","Only at night","Only in summer"],
+c:0
+},
+
+{
+q:"Is wind renewable?",
+a:["Yes","No","Only in winter","Only near oceans"],
+c:0
+},
+
+{
+q:"Why is renewable energy important?",
+a:["It can provide energy with lower greenhouse gas emissions than fossil fuels","It always increases pollution","It uses only coal","It destroys all forests"],
+c:0
+},
+
+{
+q:"How do solar panels produce electricity?",
+a:["They convert sunlight into electrical energy","They burn coal","They use gasoline","They create sunlight"],
+c:0
+},
+
+{
+q:"How can renewable energy help the environment?",
+a:["It can reduce air pollution and greenhouse gas emissions","It increases plastic waste","It destroys all rivers","It increases fossil fuel use"],
+c:0
+},
+
+{
+q:"Why should we plant trees?",
+a:["They provide oxygen, habitats and help store carbon","They create plastic","They increase pollution","They waste water only"],
+c:0
+},
+
+{
+q:"Why should we avoid wasting food?",
+a:["It saves resources and reduces waste","It increases pollution","It wastes water","It destroys forests"],
+c:0
+},
+
+{
+q:"Why should we use reusable bags?",
+a:["To reduce single-use plastic waste","To increase plastic pollution","To waste resources","To produce more waste"],
+c:0
+},
+
+{
+q:"Why should we save electricity?",
+a:["It can reduce energy use and emissions","It increases pollution","It wastes resources","It increases fossil fuel use"],
+c:0
+},
+
+{
+q:"Why should we use public transport?",
+a:["It can reduce the number of vehicles and emissions per passenger","It always increases traffic","It uses more roads","It increases plastic waste"],
+c:0
+},
+
+{
+q:"How can students help protect the environment?",
+a:["Save water, reduce waste and plant trees","Throw waste on roads","Waste electricity","Pollute rivers"],
+c:0
+},
+
+{
+q:"Why should we keep our surroundings clean?",
+a:["To maintain a healthy and pleasant environment","To increase pollution","To create more waste","To waste water"],
+c:0
+},
+
+{
+q:"What can we do to reduce plastic use?",
+a:["Use reusable alternatives","Use more single-use plastic","Throw plastic into rivers","Burn plastic everywhere"],
+c:0
+},
+
+{
+q:"Why should we protect rivers and lakes?",
+a:["They provide water and support ecosystems","They are useless","They create plastic","They increase air pollution"],
+c:0
+},
+
+{
+q:"What is one simple thing you can do every day to help the environment?",
+a:["Throw waste on the ground","Waste water","Put waste in the proper bin","Burn plastic"],
+c:2
+},
+
+/* ================= MATHS ================= */
+
+{
+q:"What is 5 + 3?",
+a:["6","7","8","9"],
+c:2
+},
+
+{
+q:"What is 10 + 7?",
+a:["15","16","17","18"],
+c:2
+},
+
+{
+q:"What is 12 + 8?",
+a:["18","20","22","24"],
+c:1
+},
+
+{
+q:"What is 15 + 5?",
+a:["18","20","22","25"],
+c:1
+},
+
+{
+q:"What is 20 + 10?",
+a:["25","30","35","40"],
+c:1
+},
+
+{
+q:"What is 25 + 15?",
+a:["35","40","45","50"],
+c:1
+},
+
+{
+q:"What is 30 + 20?",
+a:["40","45","50","60"],
+c:2
+},
+
+{
+q:"What is 45 + 5?",
+a:["40","45","50","55"],
+c:2
+},
+
+{
+q:"What is 50 + 25?",
+a:["65","70","75","80"],
+c:2
+},
+
+{
+q:"What is 100 + 50?",
+a:["125","150","175","200"],
+c:1
+},
+
+{
+q:"What is 10 − 4?",
+a:["4","5","6","7"],
+c:2
+},
+
+{
+q:"What is 15 − 5?",
+a:["8","10","12","15"],
+c:1
+},
+
+{
+q:"What is 20 − 8?",
+a:["10","12","14","16"],
+c:1
+},
+
+{
+q:"What is 25 − 10?",
+a:["10","15","20","25"],
+c:1
+},
+
+{
+q:"What is 30 − 15?",
+a:["10","15","20","25"],
+c:1
+},
+
+{
+q:"What is 40 − 20?",
+a:["10","15","20","25"],
+c:2
+},
+
+{
+q:"What is 50 − 25?",
+a:["20","25","30","35"],
+c:1
+},
+
+{
+q:"What is 60 − 30?",
+a:["20","25","30","40"],
+c:2
+},
+
+{
+q:"What is 75 − 25?",
+a:["40","45","50","55"],
+c:2
+},
+
+{
+q:"What is 100 − 50?",
+a:["25","40","50","75"],
+c:2
+},
+
+{
+q:"What is 2 × 3?",
+a:["5","6","7","8"],
+c:1
+},
+
+{
+q:"What is 4 × 5?",
+a:["15","20","25","30"],
+c:1
+},
+
+{
+q:"What is 6 × 2?",
+a:["8","10","12","14"],
+c:2
+},
+
+{
+q:"What is 7 × 3?",
+a:["18","20","21","24"],
+c:2
+},
+
+{
+q:"What is 8 × 4?",
+a:["24","28","32","36"],
+c:2
+},
+
+{
+q:"What is 9 × 5?",
+a:["40","45","50","55"],
+c:1
+},
+
+{
+q:"What is 10 × 6?",
+a:["50","60","70","80"],
+c:1
+},
+
+{
+q:"What is 7 × 7?",
+a:["42","49","56","63"],
+c:1
+},
+
+{
+q:"What is 8 × 8?",
+a:["56","64","72","80"],
+c:1
+},
+
+{
+q:"What is 10 × 10?",
+a:["10","50","100","1,000"],
+c:2
+},
+
+{
+q:"What is 6 ÷ 2?",
+a:["2","3","4","6"],
+c:1
+},
+
+{
+q:"What is 10 ÷ 2?",
+a:["2","5","8","10"],
+c:1
+},
+
+{
+q:"What is 12 ÷ 3?",
+a:["3","4","5","6"],
+c:1
+},
+
+{
+q:"What is 20 ÷ 4?",
+a:["4","5","6","8"],
+c:1
+},
+
+{
+q:"What is 25 ÷ 5?",
+a:["4","5","6","10"],
+c:1
+},
+
+{
+q:"What is 30 ÷ 5?",
+a:["5","6","7","8"],
+c:1
+},
+
+{
+q:"What is 36 ÷ 6?",
+a:["5","6","7","8"],
+c:1
+},
+
+{
+q:"What is 40 ÷ 8?",
+a:["4","5","6","8"],
+c:1
+},
+
+{
+q:"What is 50 ÷ 10?",
+a:["4","5","6","10"],
+c:1
+},
+
+{
+q:"What is 100 ÷ 10?",
+a:["5","10","20","100"],
+c:1
+},
+
+{
+q:"What comes after 99?",
+a:["98","99","100","101"],
+c:2
+},
+
+{
+q:"What comes before 50?",
+a:["48","49","51","52"],
+c:1
+},
+
+{
+q:"What is the smallest 2-digit number?",
+a:["0","1","10","11"],
+c:2
+},
+
+{
+q:"What is the largest 2-digit number?",
+a:["90","98","99","100"],
+c:2
+},
+
+{
+q:"What is the smallest 3-digit number?",
+a:["99","100","101","111"],
+c:1
+},
+
+{
+q:"What is the largest 3-digit number?",
+a:["999","1,000","900","990"],
+c:0
+},
+
+{
+q:"How many digits are in 1,000?",
+a:["2","3","4","5"],
+c:2
+},
+
+{
+q:"What is the place value of 5 in 55?",
+a:["Ones","Tens","Hundreds","Thousands"],
+c:1
+},
+
+{
+q:"What is the place value of 7 in 700?",
+a:["Ones","Tens","Hundreds","Thousands"],
+c:2
+},
+
+{
+q:"What is 1/2 of 10?",
+a:["2","5","8","10"],
+c:1
+},
+
+{
+q:"What is 1/2 of 20?",
+a:["5","10","15","20"],
+c:1
+},
+
+{
+q:"What is 1/4 of 20?",
+a:["4","5","10","15"],
+c:1
+},
+
+{
+q:"What is 1/5 of 25?",
+a:["4","5","10","15"],
+c:1
+},
+
+{
+q:"What is 1/2 + 1/2?",
+a:["1/4","1/2","1","2"],
+c:2
+},
+
+{
+q:"Which is bigger?",
+a:["1/4","1/2","They are equal","1/8"],
+c:1
+},
+
+{
+q:"How many halves make one whole?",
+a:["1","2","3","4"],
+c:1
+},
+
+{
+q:"How many quarters make one whole?",
+a:["2","3","4","5"],
+c:2
+},
+
+{
+q:"What is 2/4 simplified?",
+a:["1/2","1/3","2/3","1/4"],
+c:0
+},
+
+{
+q:"What is 3/3 equal to?",
+a:["0","1/2","1","3"],
+c:2
+},
+
+{
+q:"What is 10% of 100?",
+a:["5","10","20","25"],
+c:1
+},
+
+{
+q:"What is 50% of 100?",
+a:["25","40","50","75"],
+c:2
+},
+
+{
+q:"What is 25% of 100?",
+a:["20","25","50","75"],
+c:1
+},
+
+{
+q:"What is 10% of 50?",
+a:["5","10","15","20"],
+c:0
+},
+
+{
+q:"What is 50% of 20?",
+a:["5","10","15","20"],
+c:1
+},
+
+{
+q:"What is 20% of 100?",
+a:["10","20","25","50"],
+c:1
+},
+
+{
+q:"What is 5% of 100?",
+a:["5","10","15","20"],
+c:0
+},
+
+{
+q:"What percentage is one-half?",
+a:["25%","50%","75%","100%"],
+c:1
+},
+
+{
+q:"What percentage is one-quarter?",
+a:["10%","20%","25%","50%"],
+c:2
+},
+
+{
+q:"What percentage is one whole?",
+a:["10%","25%","50%","100%"],
+c:3
+},
+
+{
+q:"How many sides does a triangle have?",
+a:["2","3","4","5"],
+c:1
+},
+
+{
+q:"How many sides does a square have?",
+a:["3","4","5","6"],
+c:1
+},
+
+{
+q:"How many sides does a rectangle have?",
+a:["3","4","5","6"],
+c:1
+},
+
+{
+q:"How many sides does a pentagon have?",
+a:["4","5","6","7"],
+c:1
+},
+
+{
+q:"How many sides does a hexagon have?",
+a:["5","6","7","8"],
+c:1
+},
+
+{
+q:"How many sides does an octagon have?",
+a:["6","7","8","9"],
+c:2
+},
+
+{
+q:"How many angles does a triangle have?",
+a:["2","3","4","5"],
+c:1
+},
+
+{
+q:"What shape has no corners?",
+a:["Square","Triangle","Circle","Rectangle"],
+c:2
+},
+
+{
+q:"How many degrees are in a right angle?",
+a:["45°","90°","180°","360°"],
+c:1
+},
+
+{
+q:"How many degrees are in a full circle?",
+a:["90°","180°","270°","360°"],
+c:3
+},
+
+{
+q:"How many centimetres are in 1 metre?",
+a:["10","50","100","1,000"],
+c:2
+},
+
+{
+q:"How many metres are in 1 kilometre?",
+a:["100","500","1,000","10,000"],
+c:2
+},
+
+{
+q:"How many millimetres are in 1 centimetre?",
+a:["5","10","50","100"],
+c:1
+},
+
+{
+q:"How many grams are in 1 kilogram?",
+a:["100","500","1,000","10,000"],
+c:2
+},
+
+{
+q:"How many minutes are in 1 hour?",
+a:["30","45","60","100"],
+c:2
+},
+
+{
+q:"How many seconds are in 1 minute?",
+a:["30","45","60","100"],
+c:2
+},
+
+{
+q:"How many hours are in one day?",
+a:["12","18","24","48"],
+c:2
+},
+
+{
+q:"How many days are in one week?",
+a:["5","6","7","8"],
+c:2
+},
+
+{
+q:"How many months are in one year?",
+a:["10","11","12","13"],
+c:2
+},
+
+{
+q:"How many days are in a normal year?",
+a:["360","364","365","366"],
+c:2
+},
+
+{
+q:"What is 5 × 5 + 5?",
+a:["25","30","35","50"],
+c:1
+},
+
+{
+q:"What is 20 − 5 × 2?",
+a:["10","15","20","30"],
+c:0
+},
+
+{
+q:"What is 10 + 10 ÷ 2?",
+a:["10","15","20","25"],
+c:1
+},
+
+{
+q:"What is 4 × 5 − 5?",
+a:["10","15","20","25"],
+c:1
+},
+
+{
+q:"What is 100 ÷ 2 + 10?",
+a:["50","55","60","70"],
+c:2
+},
+
+{
+q:"If you have 10 apples and eat 3, how many are left?",
+a:["5","6","7","8"],
+c:2
+},
+
+{
+q:"If one pencil costs ₹5, how much do 4 pencils cost?",
+a:["₹10","₹15","₹20","₹25"],
+c:2
+},
+
+{
+q:"If you have ₹100 and spend ₹40, how much is left?",
+a:["₹40","₹50","₹60","₹70"],
+c:2
+},
+
+{
+q:"A box has 6 balls. How many balls are in 5 boxes?",
+a:["11","20","30","36"],
+c:2
+},
+
+{
+q:"If 20 chocolates are shared equally among 4 people, how many does each person get?",
+a:["4","5","6","10"],
+c:1
 }
 
 ];
 
-/*
-  The quiz system can hold hundreds of questions.
-  Add more objects to the array using the same format.
-*/
+
+/* ================= QUIZ ================= */
 
 let quizQuestions=[];
 let quizIndex=0;
@@ -993,713 +2777,926 @@ let quizScore=0;
 
 function shuffle(array){
 
-  let a=[...array];
+    return array
+        .map(value=>({
+            value:value,
+            sort:Math.random()
+        }))
+        .sort((a,b)=>a.sort-b.sort)
+        .map(item=>item.value);
 
-  for(let i=a.length-1;i>0;i--){
-
-    let j=Math.floor(Math.random()*(i+1));
-
-    [a[i],a[j]]=[a[j],a[i]];
-  }
-
-  return a;
 }
 
 function startQuiz(){
 
-  quizQuestions=shuffle(questions).slice(0,10);
-  quizIndex=0;
-  quizScore=0;
+    quizQuestions=shuffle(questions).slice(0,10);
 
-  document.getElementById("quizScore").textContent=0;
-  document.getElementById("quizResult").textContent="";
+    quizIndex=0;
+    quizScore=0;
 
-  showQuestion();
+    document.getElementById("quizScore")
+        .textContent=0;
+
+    showQuizQuestion();
+
 }
 
-function showQuestion(){
+function showQuizQuestion(){
 
-  if(quizIndex>=quizQuestions.length){
+    if(quizIndex>=10){
 
-    document.getElementById("quizQuestion").textContent=
-      "🏆 Quiz Complete!";
+        document.getElementById("questionNumber")
+            .textContent=10;
 
-    document.getElementById("quizOptions").innerHTML="";
+        document.getElementById("quizQuestion")
+            .textContent="🏆 Quiz Complete!";
 
-    document.getElementById("quizResult").textContent=
-      "🎉 Your score: "+
-      quizScore+
-      "/10";
+        document.getElementById("quizOptions")
+            .innerHTML=
+            "<p>Your score: "+
+            quizScore+
+            "/10</p>";
 
-    addXP(quizScore*10);
+        localStorage.setItem(
+            "lastQuizScore",
+            quizScore
+        );
 
-    return;
-  }
+        addXP(quizScore*10);
 
-  let q=quizQuestions[quizIndex];
+        return;
 
-  document.getElementById("quizQuestion").textContent=
-    (quizIndex+1)+". "+q.q;
+    }
 
-  let box=document.getElementById("quizOptions");
+    const question=quizQuestions[quizIndex];
 
-  box.innerHTML="";
+    document.getElementById("questionNumber")
+        .textContent=quizIndex+1;
 
-  let answers=q.a.map((text,index)=>({
-    text:text,
-    correct:index===q.c
-  }));
+    document.getElementById("quizQuestion")
+        .textContent=question.q;
 
-  answers=shuffle(answers);
+    const box=document.getElementById("quizOptions");
 
-  answers.forEach(answer=>{
+    box.innerHTML="";
 
-    let button=document.createElement("button");
+    const choices=question.a.map((answer,index)=>({
+        answer:answer,
+        correct:index===question.c
+    }));
 
-    button.className="option";
-    button.textContent=answer.text;
+    shuffle(choices).forEach(function(choice){
 
-    button.onclick=()=>{
+        const button=document.createElement("button");
 
-      if(answer.correct){
+        button.className="choice";
 
-        button.classList.add("correct");
-        quizScore++;
-        addXP(10);
+        button.textContent=choice.answer;
 
-      }else{
+        button.onclick=function(){
 
-        button.classList.add("wrong");
+            const buttons=box.querySelectorAll("button");
 
-      }
+            buttons.forEach(b=>{
+                b.disabled=true;
+            });
 
-      document.getElementById("quizScore").textContent=quizScore;
+            if(choice.correct){
 
-      setTimeout(()=>{
-        quizIndex++;
-        showQuestion();
-      },500);
+                button.classList.add("correct");
 
-    };
+                quizScore++;
 
-    box.appendChild(button);
-  });
+                document.getElementById("quizScore")
+                    .textContent=quizScore;
+
+            }else{
+
+                button.classList.add("wrong");
+
+                choices.forEach(function(item){
+
+                    if(item.correct){
+
+                        buttons.forEach(function(b){
+
+                            if(b.textContent===item.answer){
+                                b.classList.add("correct");
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            }
+
+            setTimeout(function(){
+
+                quizIndex++;
+
+                showQuizQuestion();
+
+            },700);
+
+        };
+
+        box.appendChild(button);
+
+    });
+
 }
 
 function resetQuiz(){
 
-  quizQuestions=[];
-  quizIndex=0;
-  quizScore=0;
+    quizQuestions=[];
+    quizIndex=0;
+    quizScore=0;
 
-  document.getElementById("quizQuestion").textContent=
-    "Press Start Quiz!";
+    document.getElementById("questionNumber")
+        .textContent=0;
 
-  document.getElementById("quizOptions").innerHTML="";
-  document.getElementById("quizScore").textContent="0";
-  document.getElementById("quizResult").textContent="";
+    document.getElementById("quizScore")
+        .textContent=0;
+
+    document.getElementById("quizQuestion")
+        .textContent="Press Start Quiz";
+
+    document.getElementById("quizOptions")
+        .innerHTML="";
+
 }
 
-/* =====================================================
-   CALCULATOR
-===================================================== */
+
+/* ================= CALCULATOR ================= */
 
 function calculate(){
 
-  let expression=
-    document.getElementById("calcInput").value;
+    const expression=document.getElementById("calcInput").value;
 
-  if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
+    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
 
-    document.getElementById("calcResult").textContent=
-      "❌ Invalid calculation.";
+        document.getElementById("calcResult")
+            .textContent="❌ Invalid calculation.";
 
-    return;
-  }
+        return;
 
-  try{
+    }
 
-    let answer=Function(
-      '"use strict";return('+expression+')'
-    )();
+    try{
 
-    document.getElementById("calcResult").textContent=
-      "🧮 Answer = "+answer;
+        const answer=Function(
+            '"use strict";return('+expression+')'
+        )();
 
-  }catch(e){
+        document.getElementById("calcResult")
+            .textContent="🧮 Answer = "+answer;
 
-    document.getElementById("calcResult").textContent=
-      "❌ Invalid calculation.";
-  }
+    }catch(e){
+
+        document.getElementById("calcResult")
+            .textContent="❌ Invalid calculation.";
+
+    }
+
 }
 
-/* =====================================================
-   CURRENCY
-===================================================== */
 
-/*
-  Approximate rates relative to USD.
-  These can later be replaced with a live API.
-*/
-
-const rates={
-  USD:1,
-  INR:83.5,
-  EUR:0.92,
-  GBP:0.78,
-  JPY:150
-};
-
-function convertCurrency(){
-
-  let amount=Number(
-    document.getElementById("currencyAmount").value
-  );
-
-  let from=document.getElementById("currencyFrom").value;
-  let to=document.getElementById("currencyTo").value;
-
-  if(!Number.isFinite(amount)){
-    document.getElementById("currencyResult").textContent=
-      "Enter a valid amount.";
-    return;
-  }
-
-  let usd=amount/rates[from];
-  let result=usd*rates[to];
-
-  document.getElementById("currencyResult").textContent=
-    amount+" "+from+" ≈ "+
-    result.toFixed(2)+" "+to;
-}
-
-/* =====================================================
-   PERCENTAGE
-===================================================== */
+/* ================= PERCENTAGE ================= */
 
 function percentage(){
 
-  let value=Number(
-    document.getElementById("percentValue").value
-  );
+    const value=Number(
+        document.getElementById("percentValue").value
+    );
 
-  let total=Number(
-    document.getElementById("percentTotal").value
-  );
+    const total=Number(
+        document.getElementById("percentTotal").value
+    );
 
-  if(!total){
+    if(!total){
+        alert("Enter a total.");
+        return;
+    }
 
-    document.getElementById("percentResult").textContent=
-      "Enter a total.";
+    document.getElementById("percentResult")
+        .textContent=
+        (value/total*100).toFixed(2)+"%";
 
-    return;
-  }
-
-  document.getElementById("percentResult").textContent=
-    (value/total*100).toFixed(2)+"%";
 }
 
-/* =====================================================
-   STOPWATCH
-===================================================== */
+
+/* ================= CURRENCY ================= */
+
+function convertCurrency(){
+
+    const amount=Number(
+        document.getElementById("currencyAmount").value
+    );
+
+    const rate=Number(
+        document.getElementById("currencyRate").value
+    );
+
+    if(isNaN(amount)){
+        alert("Enter an amount.");
+        return;
+    }
+
+    document.getElementById("currencyResult")
+        .textContent=
+        "Result = "+(amount*rate).toFixed(2);
+
+}
+
+
+/* ================= STOPWATCH ================= */
 
 let stopwatchSeconds=0;
 let stopwatchInterval=null;
 
 function updateStopwatch(){
 
-  let h=Math.floor(stopwatchSeconds/3600);
-  let m=Math.floor((stopwatchSeconds%3600)/60);
-  let s=stopwatchSeconds%60;
+    const h=Math.floor(stopwatchSeconds/3600);
+    const m=Math.floor((stopwatchSeconds%3600)/60);
+    const s=stopwatchSeconds%60;
 
-  document.getElementById("stopwatch").textContent=
-    String(h).padStart(2,"0")+":"+
-    String(m).padStart(2,"0")+":"+
-    String(s).padStart(2,"0");
+    document.getElementById("stopwatch")
+        .textContent=
+        String(h).padStart(2,"0")+":"+
+        String(m).padStart(2,"0")+":"+
+        String(s).padStart(2,"0");
+
 }
 
 function startStopwatch(){
 
-  if(stopwatchInterval)return;
+    if(stopwatchInterval)return;
 
-  stopwatchInterval=setInterval(()=>{
-    stopwatchSeconds++;
-    updateStopwatch();
-  },1000);
+    stopwatchInterval=setInterval(function(){
+
+        stopwatchSeconds++;
+        updateStopwatch();
+
+    },1000);
+
 }
 
 function stopStopwatch(){
 
-  clearInterval(stopwatchInterval);
-  stopwatchInterval=null;
+    clearInterval(stopwatchInterval);
+    stopwatchInterval=null;
+
 }
 
 function resetStopwatch(){
 
-  stopStopwatch();
-  stopwatchSeconds=0;
-  updateStopwatch();
+    stopStopwatch();
+
+    stopwatchSeconds=0;
+
+    updateStopwatch();
+
 }
 
-/* =====================================================
-   TIMER
-===================================================== */
+
+/* ================= TIMER ================= */
 
 let timerSeconds=0;
 let timerInterval=null;
 
-function startTimer(){
-
-  timerSeconds=Number(
-    document.getElementById("timerInput").value
-  );
-
-  if(timerSeconds<=0){
-    alert("Enter seconds.");
-    return;
-  }
-
-  clearInterval(timerInterval);
-
-  updateTimer();
-
-  timerInterval=setInterval(()=>{
-
-    timerSeconds--;
-    updateTimer();
-
-    if(timerSeconds<=0){
-
-      clearInterval(timerInterval);
-      timerInterval=null;
-
-      alert("⏰ Timer finished!");
-    }
-
-  },1000);
-}
-
 function updateTimer(){
 
-  let m=Math.floor(timerSeconds/60);
-  let s=timerSeconds%60;
+    const m=Math.floor(timerSeconds/60);
+    const s=timerSeconds%60;
 
-  document.getElementById("timer").textContent=
-    String(m).padStart(2,"0")+":"+
-    String(s).padStart(2,"0");
+    document.getElementById("timer")
+        .textContent=
+        String(m).padStart(2,"0")+":"+
+        String(s).padStart(2,"0");
+
+}
+
+function startTimer(){
+
+    timerSeconds=Number(
+        document.getElementById("timerInput").value
+    );
+
+    if(timerSeconds<=0){
+        alert("Enter seconds.");
+        return;
+    }
+
+    clearInterval(timerInterval);
+
+    updateTimer();
+
+    timerInterval=setInterval(function(){
+
+        timerSeconds--;
+
+        updateTimer();
+
+        if(timerSeconds<=0){
+
+            clearInterval(timerInterval);
+
+            timerInterval=null;
+
+            alert("⏰ Timer finished!");
+
+        }
+
+    },1000);
+
 }
 
 function stopTimer(){
 
-  clearInterval(timerInterval);
-  timerInterval=null;
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
 }
 
-/* =====================================================
-   ASK BOTH
-===================================================== */
 
-function askBoth(){
+/* ================= DAILY CHALLENGE ================= */
 
-  let question=document.getElementById("bothInput").value.trim();
+function dailyAnswer(){
 
-  if(!question)return;
+    const today=
+        new Date().toISOString().split("T")[0];
 
-  document.getElementById("bothVerity").textContent=
-    getAnswer(question);
+    const lastCompleted=
+        localStorage.getItem("dailyChallengeCompleted");
 
-  document.getElementById("bothNova").textContent=
-    getAnswer(question);
+    if(lastCompleted===today){
 
-  document.getElementById("bothInput").value="";
+        document.getElementById("dailyResult")
+            .textContent=
+            "✅ You already completed today's challenge. Come back tomorrow!";
 
-  addXP(5);
+        return;
+
+    }
+
+    localStorage.setItem(
+        "dailyChallengeCompleted",
+        today
+    );
+
+    addXP(20);
+
+    document.getElementById("dailyResult")
+        .textContent=
+        "🎉 Challenge completed! +20 XP";
+
 }
 
-/* =====================================================
-   MEMORY GAME
-===================================================== */
 
-const memorySymbols=[
-  "🍎","🍎",
-  "🚗","🚗",
-  "⭐","⭐",
-  "🐶","🐶",
-  "🌎","🌎",
-  "⚽","⚽",
-  "🚀","🚀",
-  "🎮","🎮"
-];
+/* ================= NOTES ================= */
+
+document.getElementById("notes").value=
+    localStorage.getItem("notes")||"";
+
+function saveNotes(){
+
+    localStorage.setItem(
+        "notes",
+        document.getElementById("notes").value
+    );
+
+    document.getElementById("notesResult")
+        .textContent="✅ Notes saved.";
+
+}
+
+function clearNotes(){
+
+    document.getElementById("notes").value="";
+
+    localStorage.removeItem("notes");
+
+}
+
+
+/* ================= TEXT TO SPEECH ================= */
+
+function speakText(){
+
+    const text=
+        document.getElementById("speechText").value;
+
+    if(!text)return;
+
+    if(!("speechSynthesis" in window)){
+
+        alert("Speech is not supported.");
+
+        return;
+
+    }
+
+    speechSynthesis.cancel();
+
+    const speech=
+        new SpeechSynthesisUtterance(text);
+
+    speech.lang="en-US";
+
+    speechSynthesis.speak(speech);
+
+}
+
+
+/* ================= SPEECH TO TEXT ================= */
+
+function startSpeechRecognition(){
+
+    const Recognition=
+        window.SpeechRecognition||
+        window.webkitSpeechRecognition;
+
+    if(!Recognition){
+
+        alert(
+            "Speech recognition is not supported on this browser."
+        );
+
+        return;
+
+    }
+
+    const recognition=new Recognition();
+
+    recognition.lang="en-US";
+
+    recognition.interimResults=false;
+
+    recognition.onresult=function(event){
+
+        document.getElementById("speechInput")
+            .value=
+            event.results[0][0].transcript;
+
+    };
+
+    recognition.start();
+
+}
+
+
+/* ================= FAVOURITE ================= */
+
+function toggleFavourite(){
+
+    const current=
+        localStorage.getItem("favourite");
+
+    if(current==="yes"){
+
+        localStorage.setItem("favourite","no");
+
+        document.getElementById("favouriteResult")
+            .textContent=
+            "🤍 Removed from favourites.";
+
+    }else{
+
+        localStorage.setItem("favourite","yes");
+
+        document.getElementById("favouriteResult")
+            .textContent=
+            "❤️ Added to favourites.";
+
+    }
+
+}
+
+
+/* ================= REVIEW ================= */
+
+function saveReview(){
+
+    const rating=
+        document.getElementById("rating").value;
+
+    const review=
+        document.getElementById("review").value;
+
+    localStorage.setItem("rating",rating);
+    localStorage.setItem("review",review);
+
+    document.getElementById("reviewResult")
+        .textContent=
+        "✅ Review saved. Rating: "+rating+"/5";
+
+}
+
+
+/* ================= TYPING TEST ================= */
+
+function typingTest(){
+
+    const target=
+        document.getElementById("typingText")
+        .textContent.trim();
+
+    const typed=
+        document.getElementById("typingInput")
+        .value;
+
+    if(!typed){
+
+        document.getElementById("typingResult")
+            .textContent="Start typing!";
+
+        return;
+
+    }
+
+    let correct=0;
+
+    for(
+        let i=0;
+        i<typed.length&&i<target.length;
+        i++
+    ){
+
+        if(typed[i]===target[i]){
+            correct++;
+        }
+
+    }
+
+    const accuracy=Math.round(
+        correct/
+        Math.max(typed.length,1)*
+        100
+    );
+
+    document.getElementById("typingResult")
+        .textContent=
+        "Accuracy: "+accuracy+"%";
+
+}
+
+
+/* ================= MEMORY GAME ================= */
 
 let memoryFirst=null;
+let memorySecond=null;
 let memoryLock=false;
 let memoryMatches=0;
 
 function startMemory(){
 
-  let board=document.getElementById("memoryBoard");
+    const symbols=[
+        "🍎","🍎",
+        "🍌","🍌",
+        "🍇","🍇",
+        "🍊","🍊",
+        "⭐","⭐",
+        "❤️","❤️"
+    ];
 
-  board.innerHTML="";
+    const shuffled=shuffle(symbols);
 
-  memoryFirst=null;
-  memoryLock=false;
-  memoryMatches=0;
+    const grid=document.getElementById("memoryGrid");
 
-  let cards=shuffle(memorySymbols);
+    grid.innerHTML="";
 
-  cards.forEach(symbol=>{
+    memoryFirst=null;
+    memorySecond=null;
+    memoryLock=false;
+    memoryMatches=0;
 
-    let button=document.createElement("button");
+    document.getElementById("memoryResult")
+        .textContent=
+        "Find all matching pairs!";
 
-    button.className="memory-card";
-    button.textContent="❓";
-    button.dataset.symbol=symbol;
+    shuffled.forEach(function(symbol){
 
-    button.onclick=()=>flipMemory(button);
+        const card=document.createElement("div");
 
-    board.appendChild(button);
-  });
+        card.className="memory-card";
 
-  document.getElementById("memoryResult").textContent=
-    "Find all pairs!";
+        card.dataset.symbol=symbol;
+
+        card.textContent="❓";
+
+        card.onclick=function(){
+            memoryClick(card);
+        };
+
+        grid.appendChild(card);
+
+    });
+
 }
 
-function flipMemory(card){
+function memoryClick(card){
 
-  if(memoryLock)return;
-  if(card.classList.contains("matched"))return;
-  if(card===memoryFirst)return;
+    if(memoryLock)return;
 
-  card.textContent=card.dataset.symbol;
+    if(card===memoryFirst)return;
 
-  if(!memoryFirst){
+    if(card.classList.contains("open"))return;
 
-    memoryFirst=card;
-    return;
-  }
+    card.classList.add("open");
 
-  if(card.dataset.symbol===memoryFirst.dataset.symbol){
+    card.textContent=card.dataset.symbol;
 
-    card.classList.add("matched");
-    memoryFirst.classList.add("matched");
+    if(!memoryFirst){
 
-    memoryMatches++;
-    memoryFirst=null;
+        memoryFirst=card;
 
-    addXP(10);
+        return;
 
-    if(memoryMatches===memorySymbols.length/2){
-
-      document.getElementById("memoryResult").textContent=
-        "🎉 You found every pair!";
     }
 
-  }else{
+    memorySecond=card;
 
     memoryLock=true;
 
-    setTimeout(()=>{
+    if(
+        memoryFirst.dataset.symbol===
+        memorySecond.dataset.symbol
+    ){
 
-      card.textContent="❓";
-      memoryFirst.textContent="❓";
+        memoryMatches++;
 
-      memoryFirst=null;
-      memoryLock=false;
+        memoryFirst=null;
+        memorySecond=null;
+        memoryLock=false;
 
-    },700);
-  }
+        if(memoryMatches===6){
+
+            document.getElementById("memoryResult")
+                .textContent=
+                "🎉 You found all pairs!";
+
+            addXP(20);
+
+        }
+
+    }else{
+
+        setTimeout(function(){
+
+            memoryFirst.classList.remove("open");
+            memorySecond.classList.remove("open");
+
+            memoryFirst.textContent="❓";
+            memorySecond.textContent="❓";
+
+            memoryFirst=null;
+            memorySecond=null;
+            memoryLock=false;
+
+        },700);
+
+    }
+
 }
 
-startMemory();
 
-/* =====================================================
-   TYPING TEST
-===================================================== */
+/* ================= GUESS GAME ================= */
 
-let typingStart=0;
-let typingRunning=false;
-let typingTimer=null;
+let secretNumber=
+    Math.floor(Math.random()*20)+1;
 
-function startTyping(){
+function guessNumber(){
 
-  resetTyping();
-
-  typingRunning=true;
-  typingStart=Date.now();
-
-  typingTimer=setInterval(()=>{
-
-    let seconds=Math.floor(
-      (Date.now()-typingStart)/1000
+    const guess=Number(
+        document.getElementById("guessInput").value
     );
 
-    document.getElementById("typingTime").textContent=
-      seconds;
+    if(!guess)return;
 
-  },1000);
+    if(guess===secretNumber){
 
-  document.getElementById("typingInput").focus();
+        document.getElementById("guessResult")
+            .textContent=
+            "🎉 Correct! New number created.";
+
+        addXP(10);
+
+        secretNumber=
+            Math.floor(Math.random()*20)+1;
+
+    }else if(guess<secretNumber){
+
+        document.getElementById("guessResult")
+            .textContent="⬆️ Too low!";
+
+    }else{
+
+        document.getElementById("guessResult")
+            .textContent="⬇️ Too high!";
+
+    }
+
 }
 
-function typingCheck(){
 
-  if(!typingRunning)return;
+/* ================= ROCK PAPER SCISSORS ================= */
 
-  let target=document.getElementById(
-    "typingText"
-  ).textContent.trim();
+function rps(player){
 
-  let typed=document.getElementById(
-    "typingInput"
-  ).value;
+    const choices=[
+        "rock",
+        "paper",
+        "scissors"
+    ];
 
-  let seconds=Math.max(
-    1,
-    (Date.now()-typingStart)/1000
-  );
+    const computer=
+        choices[
+            Math.floor(Math.random()*3)
+        ];
 
-  let words=typed.trim()
-    ?typed.trim().split(/\s+/).length
-    :0;
+    let result;
 
-  let wpm=Math.round(words/(seconds/60));
+    if(player===computer){
 
-  document.getElementById("typingWpm").textContent=
-    wpm;
+        result="🤝 Draw!";
 
-  if(typed===target){
+    }else if(
 
-    typingRunning=false;
-    clearInterval(typingTimer);
+        player==="rock"&&
+        computer==="scissors"||
 
-    addXP(25);
+        player==="paper"&&
+        computer==="rock"||
 
-    alert("🎉 Typing test complete!");
-  }
+        player==="scissors"&&
+        computer==="paper"
+
+    ){
+
+        result="🎉 You win!";
+
+        addXP(5);
+
+    }else{
+
+        result="😅 Computer wins!";
+
+    }
+
+    document.getElementById("rpsResult")
+        .textContent=
+        "You: "+player+
+        " | Computer: "+computer+
+        " → "+result;
+
 }
 
-function resetTyping(){
 
-  clearInterval(typingTimer);
+/* ================= SEARCH ================= */
 
-  typingRunning=false;
+function searchSite(){
 
-  document.getElementById("typingInput").value="";
-  document.getElementById("typingTime").textContent="0";
-  document.getElementById("typingWpm").textContent="0";
+    const text=
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const result=
+        document.getElementById("searchResult");
+
+    if(!text){
+
+        result.innerHTML="";
+
+        return;
+
+    }
+
+    const matches=[];
+
+    if(
+        text.includes("bot")||
+        text.includes("verity")||
+        text.includes("nova")
+    ){
+        matches.push("🤖 Bots");
+    }
+
+    if(text.includes("quiz")){
+        matches.push("📝 Quiz");
+    }
+
+    if(
+        text.includes("math")||
+        text.includes("calculator")
+    ){
+        matches.push("🧮 Maths / Calculator");
+    }
+
+    if(text.includes("game")){
+        matches.push("🎮 Games");
+    }
+
+    if(text.includes("memory")){
+        matches.push("🧠 Memory Game");
+    }
+
+    if(text.includes("daily")){
+        matches.push("🎯 Daily Challenge");
+    }
+
+    if(text.includes("speech")){
+        matches.push("🔊 Speech Tools");
+    }
+
+    if(matches.length){
+
+        result.innerHTML=
+            "<p>Found:</p>"+
+            matches.map(x=>"<p>"+x+"</p>").join("");
+
+    }else{
+
+        result.innerHTML=
+            "<p>🤔 Nothing found.</p>";
+
+    }
+
 }
 
-/* =====================================================
-   DAILY CHALLENGE
-===================================================== */
 
-const dailyChallenges=[
-  {
-    q:"What is 25 + 25?",
-    a:["40","45","50","55"],
-    c:2
-  },
-  {
-    q:"Which planet is called the Red Planet?",
-    a:["Earth","Mars","Venus","Jupiter"],
-    c:1
-  },
-  {
-    q:"What gas do plants release during photosynthesis?",
-    a:["Oxygen","Nitrogen","Helium","Hydrogen"],
-    c:0
-  },
-  {
-    q:"How many planets are in our Solar System?",
-    a:["7","8","9","10"],
-    c:1
-  }
-];
-
-function dailyChallenge(){
-
-  let today=new Date();
-  let day=
-    today.getFullYear()*10000+
-    (today.getMonth()+1)*100+
-    today.getDate();
-
-  let challenge=
-    dailyChallenges[day%dailyChallenges.length];
-
-  document.getElementById("dailyQuestion").textContent=
-    challenge.q;
-
-  let box=document.getElementById("dailyOptions");
-  box.innerHTML="";
-
-  shuffle(
-    challenge.a.map((x,i)=>({
-      text:x,
-      correct:i===challenge.c
-    }))
-  ).forEach(answer=>{
-
-    let button=document.createElement("button");
-
-    button.className="option";
-    button.textContent=answer.text;
-
-    button.onclick=()=>{
-
-      if(answer.correct){
-
-        button.classList.add("correct");
-
-        document.getElementById("dailyResult").textContent=
-          "🎉 Correct! +20 XP";
-
-        addXP(20);
-
-      }else{
-
-        button.classList.add("wrong");
-
-        document.getElementById("dailyResult").textContent=
-          "❌ Try again tomorrow!";
-      }
-
-    };
-
-    box.appendChild(button);
-  });
-}
-
-dailyChallenge();
-
-/* =====================================================
-   DARK / LIGHT MODE
-===================================================== */
-
-function applyTheme(){
-
-  let theme=localStorage.getItem("theme")||"dark";
-
-  document.body.classList.toggle(
-    "light",
-    theme==="light"
-  );
-
-  document.getElementById("themeStatus").textContent=
-    theme==="light"?"Light":"Dark";
-}
+/* ================= THEME ================= */
 
 function toggleTheme(){
 
-  let current=
-    localStorage.getItem("theme")||"dark";
+    document.body.classList.toggle("light");
 
-  localStorage.setItem(
-    "theme",
-    current==="dark"?"light":"dark"
-  );
+    localStorage.setItem(
+        "theme",
+        document.body.classList.contains("light")
+        ?"light"
+        :"dark"
+    );
 
-  applyTheme();
 }
 
 function saveSettings(){
 
-  localStorage.setItem(
-    "settingsSaved",
-    "yes"
-  );
+    localStorage.setItem(
+        "settingsSaved",
+        "yes"
+    );
 
-  alert("✅ Settings saved!");
+    alert("✅ Settings saved!");
+
 }
 
-applyTheme();
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-const featureList=[
-  ["🤖 Verity & Nova","bots"],
-  ["📝 Quiz","quiz"],
-  ["🎮 Memory Game","games"],
-  ["⌨️ Typing Speed Test","games"],
-  ["🎯 Daily Challenge","games"],
-  ["🧮 Calculator","tools"],
-  ["💱 Currency Converter","tools"],
-  ["📊 Percentage","tools"],
-  ["⏱️ Stopwatch","tools"],
-  ["⏲️ Timer","tools"],
-  ["🌙 Dark Light Mode","settings"],
-  ["🏆 XP and Badges","settings"]
-];
-
-function searchFeatures(){
-
-  let text=
-    document.getElementById("searchInput")
-    .value.toLowerCase().trim();
-
-  let box=document.getElementById("searchResults");
-
-  box.innerHTML="";
-
-  if(!text)return;
-
-  featureList.forEach(item=>{
-
-    if(item[0].toLowerCase().includes(text)){
-
-      let div=document.createElement("div");
-
-      div.className="search-result";
-      div.textContent=item[0];
-
-      div.onclick=()=>{
-        showSection(item[1]);
-        document.getElementById("searchInput").value="";
-        box.innerHTML="";
-      };
-
-      box.appendChild(div);
-    }
-  });
+if(localStorage.getItem("theme")==="light"){
+    document.body.classList.add("light");
 }
 
-/* =====================================================
-   RESET PROGRESS
-===================================================== */
 
-function resetAllProgress(){
+/* ================= LOGOUT ================= */
 
-  if(!confirm(
-    "Reset XP, theme and saved progress?"
-  ))return;
+function logout(){
 
-  localStorage.clear();
+    localStorage.removeItem("username");
 
-  xp=0;
+    location.reload();
 
-  updateXP();
-  applyTheme();
-
-  alert("✅ Progress reset.");
 }
 
-/* =====================================================
-   ENTER KEY
-===================================================== */
+
+/* ================= ENTER KEY ================= */
 
 document.getElementById("verityInput")
-.addEventListener("keydown",e=>{
-  if(e.key==="Enter")sendBot("Verity");
+.addEventListener("keydown",function(e){
+
+    if(e.key==="Enter"){
+        sendBot("Verity");
+    }
+
 });
 
 document.getElementById("novaInput")
-.addEventListener("keydown",e=>{
-  if(e.key==="Enter")sendBot("Nova");
+.addEventListener("keydown",function(e){
+
+    if(e.key==="Enter"){
+        sendBot("Nova");
+    }
+
 });
+
+
+/* ================= INITIAL MEMORY GAME ================= */
+
+startMemory();
 
 </script>
 
 </body>
-   </html>
+  </html>
